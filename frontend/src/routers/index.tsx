@@ -9,6 +9,7 @@ const MemoView = lazy(() => import('@/pages/Memo/View'));
 const Stats = lazy(() => import('@/pages/Stats'));
 const StatsMBTI = lazy(() => import('@/pages/Stats/View'));
 const Admin = lazy(() => import('@/pages/Admin'));
+const QuestionList = lazy(() => import('@/pages/Admin/Question'));
 const MyPage = lazy(() => import('@/pages/MyPage'));
 const Question = lazy(() => import('@/pages/Question'));
 const NotFound = lazy(() => import('@/pages/NotFound'));
@@ -49,6 +50,10 @@ const routePaths = [
   {
     path: '/admin',
     element: <Admin />
+  },
+  {
+    path: '/admin/question',
+    element: <QuestionList />
   },
   {
     path: '/mypage',
