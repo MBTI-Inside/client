@@ -1,20 +1,18 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import { Meta } from '@storybook/react';
 
 import Alert from './index';
 
-const meta = {
+export default {
   title: 'components/common/Alert',
   component: Alert,
   parameters: {
     layout: 'centered'
   },
-  tags: ['autodocs'],
   argTypes: {}
-} satisfies Meta<typeof Alert>;
+} as Meta;
 
-export default meta;
-type Story = StoryObj<typeof meta>;
-
-export const DefaultAlert: Story = {
-  args: {}
+const Template = (args: any) => {
+  return <Alert {...args} />;
 };
+
+export const DefaultAlert = Template.bind({});
