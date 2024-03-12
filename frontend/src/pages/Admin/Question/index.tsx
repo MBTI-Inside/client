@@ -1,66 +1,16 @@
+import QuestionCard from '@/components/pages/Admin/Question/QuestionCard';
 import QuestionHeader from '@/components/pages/Admin/Question/QuestionHeader';
 
 const QuestionList = () => {
   return (
     <div className="flex flex-col items-center">
       <QuestionHeader />
-
       <section className="flex flex-col gap-2">
-        <div>
-          <div className="card w-80 bg-base-100 shadow-xl p-4 flex-row gap-1 items-center">
-            <div className="badge w-8 h-8 justify-center items-center text-xl">
-              E
-            </div>
-            <div className="line-clamp-2">
-              바쁜 회사 생활을 보낸 당신. 황금 같은 주말을 어떻게 보내려고 할까?
-            </div>
-            <div className="w-8">76%</div>
-          </div>
-        </div>
-        <div>
-          <div className="card w-80 bg-base-100 shadow-xl p-4 flex-row gap-1 items-center">
-            <div className="badge w-8 h-8 justify-center items-center text-xl">
-              E
-            </div>
-            <div className="line-clamp-2">
-              바쁜 회사 생활을 보낸 당신. 황금 같은 주말을 어떻게 보내려고 할까?
-            </div>
-            <div className="w-8">76%</div>
-          </div>
-        </div>
-        <div>
-          <div className="card w-80 bg-base-100 shadow-xl p-4 flex-row gap-1 items-center">
-            <div className="badge w-8 h-8 justify-center items-center text-xl">
-              E
-            </div>
-            <div className="line-clamp-2">
-              바쁜 회사 생활을 보낸 당신. 황금 같은 주말을 어떻게 보내려고 할까?
-            </div>
-            <div className="w-8">76%</div>
-          </div>
-        </div>
-        <div>
-          <div className="card w-80 bg-base-100 shadow-xl p-4 flex-row gap-1 items-center">
-            <div className="badge w-8 h-8 justify-center items-center text-xl">
-              E
-            </div>
-            <div className="line-clamp-2">
-              바쁜 회사 생활을 보낸 당신. 황금 같은 주말을 어떻게 보내려고 할까?
-            </div>
-            <div className="w-8">76%</div>
-          </div>
-        </div>
-        <div>
-          <div className="card w-80 bg-base-100 shadow-xl p-4 flex-row gap-1 items-center">
-            <div className="badge w-8 h-8 justify-center items-center text-xl">
-              E
-            </div>
-            <div className="line-clamp-2">
-              바쁜 회사 생활을 보낸 당신. 황금 같은 주말을 어떻게 보내려고 할까?
-            </div>
-            <div className="w-8">76%</div>
-          </div>
-        </div>
+        <QuestionCard />
+        <QuestionCard />
+        <QuestionCard />
+        <QuestionCard />
+        <QuestionCard />
         <div className="join mt-4 w-80 flex justify-center">
           <button className="join-item btn btn-md">{'<'}</button>
           <button className="join-item btn btn-md">1</button>
