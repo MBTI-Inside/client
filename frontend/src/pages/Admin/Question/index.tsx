@@ -2,19 +2,21 @@ import Pagination from '@/components/common/Pagination';
 import QuestionCard from '@/components/pages/Admin/Question/QuestionCard';
 import QuestionHeader from '@/components/pages/Admin/Question/QuestionHeader';
 
+import * as S from '@/pages/Admin/Question/styles';
+
 const QuestionList = () => {
   return (
-    <div className="flex flex-col items-center">
+    <S.QuestionContainer>
       <QuestionHeader />
-      <section className="flex flex-col gap-2">
+      <S.QuestionSection>
         <QuestionCard />
         <QuestionCard />
         <QuestionCard />
         <QuestionCard />
         <QuestionCard />
         <Pagination />
-      </section>
-    </div>
+      </S.QuestionSection>
+    </S.QuestionContainer>
   );
 };
 
