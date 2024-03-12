@@ -1,3 +1,4 @@
+import Pagination from '@/components/common/Pagination';
 import QuestionCard from '@/components/pages/Admin/Question/QuestionCard';
 import QuestionHeader from '@/components/pages/Admin/Question/QuestionHeader';
 
@@ -11,15 +12,7 @@ const QuestionList = () => {
         <QuestionCard />
         <QuestionCard />
         <QuestionCard />
-        <div className="join mt-4 w-80 flex justify-center">
-          <button className="join-item btn btn-md">{'<'}</button>
-          <button className="join-item btn btn-md">1</button>
-          <button className="join-item btn btn-md btn-active">2</button>
-          <button className="join-item btn btn-md">3</button>
-          <button className="join-item btn btn-md">4</button>
-          <button className="join-item btn btn-md">5</button>
-          <button className="join-item btn btn-md">{'>'}</button>
-        </div>
+        <Pagination />
       </section>
     </div>
   );
