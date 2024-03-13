@@ -1,5 +1,13 @@
 import tw from 'tailwind-styled-components';
 
+export const QuestionViewHeaderContainer = tw.section`
+    flex 
+    bg-white 
+    items-center 
+    w-full 
+    justify-between
+`;
+
 export const DropDowns = tw.div`
     dropdown 
     dropdown-end

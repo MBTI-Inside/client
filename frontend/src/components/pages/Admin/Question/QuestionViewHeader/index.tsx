@@ -5,7 +5,7 @@ import * as S from '@/components/pages/Admin/Question/QuestionViewHeader/styles'
 
 const QuestionViewHeader = () => {
   return (
-    <section className="flex bg-white items-center w-full justify-between">
+    <S.QuestionViewHeaderContainer>
       <div className="pl-4 text-xl">
         <IoIosArrowBack onClick={() => {}} />
       </div>
@@ -23,7 +23,7 @@ const QuestionViewHeader = () => {
           </li>
         </S.DropDownContents>
       </S.DropDowns>
-    </section>
+    </S.QuestionViewHeaderContainer>
   );
 };
 
