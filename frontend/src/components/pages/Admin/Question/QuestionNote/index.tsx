@@ -33,11 +33,38 @@ const QuestionNote = (params: any) => {
           defaultValue={answerBottomRef.current}
           ref={answerBottomRef}
         />
-
-        <>문항유형: E(energy)</>
-        <>
-          비중도: <S.InputTitle type="number" min="0" max="100" />%
-        </>
+        <div>
+          <label className="form-control w-full max-w-xs">
+            <div className="label">
+              <span className="label-text text-white">문항유형</span>
+              <span className="label-text-alt">Alt label</span>
+            </div>
+            <select className="select select-bordered">
+              <option disabled selected>
+                MBTI 선택
+              </option>
+              <option>E (energy)</option>
+              <option>I (energy)</option>
+              <option>S (awareness)</option>
+              <option>N (awareness)</option>
+              <option>T (judgement)</option>
+              <option>F (judgement)</option>
+              <option>J (life)</option>
+              <option>P (life)</option>
+            </select>
+          </label>
+        </div>
+        <div>
+          <div>비중도</div>
+          <input
+            type="range"
+            min={0}
+            max="100"
+            value="40"
+            className="range range-primary"
+            step="1"
+          />
+        </div>
         <Button classProp={'w-full h-14 text-lg text-white bg-inherit'}>
           작성 완료
         </Button>
