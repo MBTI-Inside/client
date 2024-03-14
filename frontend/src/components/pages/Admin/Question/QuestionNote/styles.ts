@@ -5,7 +5,9 @@ interface ColorProps {
 }
 
 export const NoteContainer = tw.div`
-    w-full 
+    flex
+    flex-col
+    w-full
     bg-black
 `;
 
