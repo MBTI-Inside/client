@@ -5,6 +5,7 @@ import { useModalContext } from '@/hooks/useModal';
 import Button from '@/components/common/Button';
 import MBTITypes from '@/components/common/MBTITypes';
 import * as S from '@/components/pages/Admin/Question/QuestionHeader/styles';
+import QuestionNote from '@/components/pages/Admin/Question/QuestionNote';
 
 const QuestionHeader = () => {
   const { openModal } = useModalContext();
@@ -14,10 +15,12 @@ const QuestionHeader = () => {
         <S.Title>Questions</S.Title>
         <div>
           {/* 임시 */}
-          <Button onClick={() => openModal(<MBTITypes />, null, 'MBTI 선택')}>
+          <Button>
             <FaExchangeAlt />
           </Button>
-          <Button>
+          <Button
+            onClick={() => openModal(<QuestionNote />, null, '문항 등록')}
+          >
             <FaPlus />
           </Button>
         </div>
