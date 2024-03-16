@@ -30,7 +30,6 @@ export const InputTitle = tw.input`
     input-bordered 
     w-full 
     outline-0 
-    mb-6 
     p-3 
     bg-inherit 
     text-white 
@@ -45,7 +44,6 @@ export const InputContent = tw.textarea`
     outline-0 
     h-40 
     resize-none 
-    mb-6 
     p-3 
     text-base 
     bg-inherit 

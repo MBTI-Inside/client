@@ -1,5 +1,4 @@
-import { useRef } from 'react';
-import { FaExchangeAlt } from 'react-icons/fa';
+import { useRef, useState } from 'react';
 
 import Button from '@/components/common/Button';
 import * as S from '@/components/pages/Admin/Question/QuestionNote/styles';
@@ -7,67 +6,75 @@ import * as S from '@/components/pages/Admin/Question/QuestionNote/styles';
 const QuestionNote = (params: any) => {
   const { id, question, answerTop, answerBottom } = params;
 
-  const questionRef = useRef(question);
-  const answerTopRef = useRef(answerTop);
-  const answerBottomRef = useRef(answerBottom);
+  const questionRef = useRef<HTMLInputElement>(null);
+  const answerTopRef = useRef<HTMLTextAreaElement>(null);
+  const answerBottomRef = useRef<HTMLTextAreaElement>(null);
+
+  const [rangeValue, setRangeValue] = useState(50);
 
   return (
     <S.NoteContainer>
       <S.NoteHeader>
         <S.Title>{'Question'}</S.Title>
       </S.NoteHeader>
-      <form className="flex-1">
-        <S.InputTitle
-          type="text"
-          placeholder="제목"
-          defaultValue={questionRef.current}
-          ref={questionRef}
-        />
-        <S.InputContent
-          placeholder="답변1"
-          defaultValue={answerTopRef.current}
-          ref={answerTopRef}
-        />
-        <S.InputContent
-          placeholder="답변2"
-          defaultValue={answerBottomRef.current}
-          ref={answerBottomRef}
-        />
-        <div>
-          <label className="form-control w-full max-w-xs">
-            <div className="label">
-              <span className="label-text text-white">문항유형</span>
-              <span className="label-text-alt">Alt label</span>
-            </div>
-            <select className="select select-bordered">
-              <option disabled selected>
-                MBTI 선택
-              </option>
-              <option>E (energy)</option>
-              <option>I (energy)</option>
-              <option>S (awareness)</option>
-              <option>N (awareness)</option>
-              <option>T (judgement)</option>
-              <option>F (judgement)</option>
-              <option>J (life)</option>
-              <option>P (life)</option>
-            </select>
-          </label>
-        </div>
-        <div>
-          <div>비중도</div>
-          <input
-            type="range"
-            min={0}
-            max="100"
-            value="40"
-            className="range range-primary"
-            step="1"
+      <form className="flex flex-col flex-1 gap-4">
+        <div className="form-control w-full">
+          <S.InputTitle
+            type="text"
+            placeholder="제목"
+            defaultValue={question ?? ''}
+            ref={questionRef}
           />
         </div>
-        <Button classProp={'w-full h-14 text-lg text-white bg-inherit'}>
-          작성 완료
-        </Button>
+        <div className="flex flex-col form-control w-full gap-2">
+          <S.InputContent
+            placeholder="답변1"
+            defaultValue={answerTop}
+            ref={answerTopRef}
+          />
+          <S.InputContent
+            placeholder="답변2"
+            defaultValue={answerBottom}
+            ref={answerBottomRef}
+          />
+        </div>
+
+        <div className="form-control w-full">
+          <div className="label">
+            <span className="label-text text-white">문항유형</span>
+          </div>
+          <select className="select select-bordered">
+            <option>E (energy)</option>
+            <option>I (energy)</option>
+            <option>S (awareness)</option>
+            <option>N (awareness)</option>
+            <option>T (judgement)</option>
+            <option>F (judgement)</option>
+            <option>J (life)</option>
+            <option>P (life)</option>
+          </select>
+        </div>
+        <div className="form-control w-full">
+          <div className="label">
+            <span className="label-text text-white">비중도</span>
+            <span className="label-text-alt text-white">{rangeValue}%</span>
+          </div>
+          <input
+            type="range"
+            min="0"
+            max="100"
+            value={rangeValue}
+            className="range range-primary"
+            style={{ backgroundColor: 'none' }}
+            step="1"
+            onChange={(e) => setRangeValue(Number(e.target.value))}
+          />
+        </div>
+        <div className="form-control w-full">
+          <Button classProp={'w-full h-14 text-lg text-white bg-inherit'}>
+            작성 완료
+          </Button>
+        </div>
       </form>
     </S.NoteContainer>
   );
