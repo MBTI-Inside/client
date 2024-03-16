@@ -73,7 +73,7 @@ const ModalProvider: React.FC<{ children: React.ReactNode }> = ({
               }}
             >
               <div
-                className="overflow-y-auto overscroll-contain p-6 bg-white"
+                className="overflow-y-auto overscroll-contain p-6 bg-black"
                 // className="p-6"
                 key={index}
                 style={{
