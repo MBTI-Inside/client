@@ -17,16 +17,16 @@ const QuestionNote = (params: any) => {
       <S.NoteHeader>
         <S.Title>{'Question'}</S.Title>
       </S.NoteHeader>
-      <form className="flex flex-col flex-1 gap-4">
-        <div className="form-control w-full">
+      <S.InputForm>
+        <S.InputFormControl>
           <S.InputTitle
             type="text"
             placeholder="제목"
             defaultValue={question ?? ''}
             ref={questionRef}
           />
-        </div>
-        <div className="flex flex-col form-control w-full gap-2">
+        </S.InputFormControl>
+        <S.InputFormControl className="flex flex-col gap-2">
           <S.InputContent
             placeholder="답변1"
             defaultValue={answerTop}
@@ -37,9 +37,9 @@ const QuestionNote = (params: any) => {
             defaultValue={answerBottom}
             ref={answerBottomRef}
           />
-        </div>
+        </S.InputFormControl>
 
-        <div className="form-control w-full">
+        <S.InputFormControl>
           <div className="label">
             <span className="label-text text-white">문항유형</span>
           </div>
@@ -53,8 +53,8 @@ const QuestionNote = (params: any) => {
             <option>J (life)</option>
             <option>P (life)</option>
           </select>
-        </div>
-        <div className="form-control w-full">
+        </S.InputFormControl>
+        <S.InputFormControl>
           <div className="label">
             <span className="label-text text-white">비중도</span>
             <span className="label-text-alt text-white">{rangeValue}%</span>
@@ -69,13 +69,13 @@ const QuestionNote = (params: any) => {
             step="1"
             onChange={(e) => setRangeValue(Number(e.target.value))}
           />
-        </div>
-        <div className="form-control w-full">
+        </S.InputFormControl>
+        <S.InputFormControl>
           <Button classProp={'w-full h-14 text-lg text-white bg-inherit'}>
             작성 완료
           </Button>
-        </div>
-      </form>
+        </S.InputFormControl>
+      </S.InputForm>
     </S.NoteContainer>
   );
 };

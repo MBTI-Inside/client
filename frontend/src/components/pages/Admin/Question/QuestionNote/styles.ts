@@ -1,9 +1,5 @@
 import tw from 'tailwind-styled-components';
 
-interface ColorProps {
-  bg: string;
-}
-
 export const NoteContainer = tw.div`
     flex
     flex-col
@@ -17,6 +13,18 @@ export const NoteHeader = tw.header`
     items-center 
     justify-between 
     px-4
+`;
+
+export const InputForm = tw.form`
+    flex 
+    flex-col 
+    flex-1 
+    gap-4
+`;
+
+export const InputFormControl = tw.div`
+    form-control 
+    w-full
 `;
 
 export const Title = tw.div`
@@ -50,11 +58,4 @@ export const InputContent = tw.textarea`
     text-white 
     border-solid 
     border-white
-`;
-
-export const MemoColor = tw.div<ColorProps>`
-    w-5 
-    h-5 
-    ml-3 
-    ${(p) => (p.bg ? p.bg : p.bg)}
 `;
