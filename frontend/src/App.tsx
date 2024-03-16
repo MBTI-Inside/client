@@ -41,6 +41,7 @@ const AppWrapper = tw.div`
   flex 
   flex-col 
   min-h-screen
+  bg-black
 `;
 
 const ContentWrapper = tw.div`

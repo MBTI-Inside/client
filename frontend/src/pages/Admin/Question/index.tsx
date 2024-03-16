@@ -1,5 +1,23 @@
+import Pagination from '@/components/common/Pagination';
+import QuestionCard from '@/components/pages/Admin/Question/QuestionCard';
+import QuestionHeader from '@/components/pages/Admin/Question/QuestionHeader';
+
+import * as S from '@/pages/Admin/Question/styles';
+
 const QuestionList = () => {
-  return <>QuestionList</>;
+  return (
+    <S.QuestionContainer>
+      <QuestionHeader />
+      <S.QuestionSection>
+        <QuestionCard />
+        <QuestionCard />
+        <QuestionCard />
+        <QuestionCard />
+        <QuestionCard />
+        <Pagination />
+      </S.QuestionSection>
+    </S.QuestionContainer>
+  );
 };
 
 export default QuestionList;
