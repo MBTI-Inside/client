@@ -1,5 +1,15 @@
+import QuestionViewCard from '@/components/pages/Admin/Question/QuestionViewCard';
+import QuestionViewHeader from '@/components/pages/Admin/Question/QuestionViewHeader';
+
+import * as S from '@/pages/Admin/Question/View/styles';
+
 const QuestionView = () => {
-  return <>QuestionView</>;
+  return (
+    <S.QuestionViewContainer>
+      <QuestionViewHeader />
+      <QuestionViewCard />
+    </S.QuestionViewContainer>
+  );
 };
 
 export default QuestionView;
