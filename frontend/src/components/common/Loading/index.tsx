@@ -1,5 +1,11 @@
+import * as S from '@/components/common/Loading/styles';
+
 const Loading = () => {
-  return <span className="loading loading-dots loading-lg text-primary"></span>;
+  return (
+    <S.LoadingWrapper>
+      <S.LoadingIcon />
+    </S.LoadingWrapper>
+  );
 };
 
 export default Loading;
