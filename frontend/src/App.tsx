@@ -5,6 +5,7 @@ import tw from 'tailwind-styled-components';
 
 import ModalProvider from '@/hooks/useModal';
 
+import Loading from '@/components/common/Loading';
 import Footer from '@/components/layout/Footer';
 import Header from '@/components/layout/Header';
 
@@ -13,8 +14,7 @@ function App() {
     <BrowserRouter>
       <AppWrapper>
         <ModalProvider>
-          {/* TODO: fallback 상태에서 로딩 컴포넌트 퍼블리싱 */}
-          <Suspense fallback={<>loading...</>}>
+          <Suspense fallback={<Loading />}>
             <Header />
             <ContentWrapper>
               <Routes>
