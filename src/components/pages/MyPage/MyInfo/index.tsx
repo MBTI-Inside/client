@@ -1,19 +1,26 @@
 import { FaPencilAlt } from 'react-icons/fa';
 
+import * as S from '@/components/pages/MyPage/MyInfo/styles';
+
 const MyInfo = () => {
   return (
-    <div className="flex flex-row bg-white items-center justify-center w-full">
-      <div>photo</div>
-      <div className="flex flex-col">
-        <div>
-          <span>
-            언정차님
-            <FaPencilAlt />
-          </span>
+    <S.MyInfoContainer>
+      <div className="avatar">
+        <div className="w-20 rounded">
+          <img src="https://avatars.githubusercontent.com/u/63568239?v=4" />
         </div>
-        <div>MBTI: ESTJ</div>
       </div>
-    </div>
+      <S.MyInfoAreaWrapper>
+        <S.MyInfoArea>
+          <div className="flex gap-1">
+            <span className="font-bold">언정차</span>
+            <span>님</span>
+          </div>
+          <FaPencilAlt className="text-lg" />
+        </S.MyInfoArea>
+        <div>MBTI : ESTJ</div>
+      </S.MyInfoAreaWrapper>
+    </S.MyInfoContainer>
   );
 };
 

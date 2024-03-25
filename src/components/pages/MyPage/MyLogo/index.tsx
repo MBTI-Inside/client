@@ -1,32 +1,23 @@
+import * as S from '@/components/pages/MyPage/MyLogo/styles';
+
 const MyLogo = () => {
-  // TODO: Responsive하게 svg 재구성 360 ~ 430
-  // 색상도 여러 개를 넣으면 더 다채롭지 않을까?
   return (
-    <svg
-      width="389"
-      height="344"
-      viewBox="0 0 389 344"
+    <S.ResponsiveLogo
+      viewBox="0 0 430 350"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
-      <g clip-path="url(#clip0_152_447)">
-        <rect width="389" height="344" fill="white" />
-        <path
-          d="M105.5 22.0765C56.8875 41.7004 34.8421 59.149 -1 94.5765L-0.5 344.077H388.5V94.5765C357.57 62.4185 333.904 46.0739 282 22.0764C213.821 1.40372 177.042 -2.69596 105.5 22.0765Z"
-          fill="#0272F1"
-        />
-        <ellipse cx="194" cy="225" rx="40" ry="20" fill="white" />
-        <ellipse cx="129.5" cy="127.5" rx="46.5" ry="44.5" fill="white" />
-        <ellipse cx="130" cy="127" rx="18" ry="19" fill="black" />
-        <ellipse cx="264.5" cy="127.5" rx="46.5" ry="44.5" fill="white" />
-        <ellipse cx="265" cy="128" rx="18" ry="19" fill="black" />
-      </g>
-      <defs>
-        <clipPath id="clip0_152_447">
-          <rect width="389" height="344" fill="white" />
-        </clipPath>
-      </defs>
-    </svg>
+      <rect width="100%" height="100%" fill="black" />
+      <path
+        d="M116.574 22.6267C62.9066 42.8828 38.5689 60.8934 -1 97.4623L-0.44801 355H429V97.4623C394.854 64.2682 368.727 47.3971 311.426 22.6266C236.158 1.28786 195.555 -2.94389 116.574 22.6267Z"
+        fill="#0272F1"
+      />
+      <ellipse cx="214" cy="241" rx="40" ry="20" fill="white" />
+      <ellipse cx="127.5" cy="127.5" rx="46.5" ry="44.5" fill="white" />
+      <ellipse cx="128" cy="127" rx="18" ry="19" fill="black" />
+      <ellipse cx="275.5" cy="127.5" rx="46.5" ry="44.5" fill="white" />
+      <ellipse cx="276" cy="128" rx="18" ry="19" fill="black" />
+    </S.ResponsiveLogo>
   );
 };
 
