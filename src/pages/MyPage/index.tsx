@@ -4,7 +4,7 @@ import MyLogo from '@/components/pages/MyPage/MyLogo';
 
 const MyPage = () => {
   return (
-    <div className="flex flex-col flex-1 items-center w-5/6 gap-12">
+    <div className="flex flex-col flex-1 items-center w-5/6 gap-8">
       <MyLogo />
       <MyInfo />
       <Button classProp="w-full">테스트 결과 보기</Button>
