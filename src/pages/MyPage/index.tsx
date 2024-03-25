@@ -4,11 +4,23 @@ import MyLogo from '@/components/pages/MyPage/MyLogo';
 
 const MyPage = () => {
   return (
-    <div className="flex flex-col flex-1 items-center w-5/6 gap-8">
+    <div
+      className="w-full h-full
+    pt-10
+    flex
+    flex-col
+    flex-1
+    content-center
+    "
+    >
       <MyLogo />
-      <MyInfo />
-      <Button classProp="w-full">테스트 결과 보기</Button>
-      <Button classProp="w-full">메모 보기</Button>
+      <div className="bg-[#0272F1] flex justify-center h-1/2">
+        <div className="flex flex-col w-5/6 items-center justify-center gap-10 mb-10">
+          <MyInfo />
+          <Button classProp="w-full">테스트 결과 보기</Button>
+          <Button classProp="w-full">메모 보기</Button>
+        </div>
+      </div>
     </div>
   );
 };
