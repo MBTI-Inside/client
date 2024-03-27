@@ -1,23 +1,11 @@
-import { CiMenuKebab } from 'react-icons/ci';
-import { GrAdobeCreativeCloud } from 'react-icons/gr';
-import { IoIosArrowBack } from 'react-icons/io';
-
 import Character from '@/components/common/Character';
 import Pagination from '@/components/common/Pagination';
-import * as S from '@/components/pages/Admin/Question/QuestionViewHeader/styles';
+import MyTestHeader from '@/components/pages/MyPage/MyTestHeader/indes';
 
 const MyTestList = () => {
   return (
     <main className="flex flex-1 flex-col gap-3 items-center">
-      <div className="flex items-center w-full justify-between h-12">
-        <div className="text-xl text-white">
-          <IoIosArrowBack onClick={() => {}} />
-        </div>
-        <span className="font-bold text-xl text-white">내 MBTI</span>
-        <div className="text-xl text-white">
-          <GrAdobeCreativeCloud />
-        </div>
-      </div>
+      <MyTestHeader />
       <section className="card w-80 bg-base-100 shadow-xl">
         <figure className="px-10 pt-10">
           <Character bgcolor="#BF1132" gcolor="#FF98CA" />
