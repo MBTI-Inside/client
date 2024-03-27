@@ -1,11 +1,11 @@
 import { GrAdobeCreativeCloud } from 'react-icons/gr';
 import { IoIosArrowBack } from 'react-icons/io';
 
-import * as S from '@/components/pages/MyPage/MyTestHeader/styles';
+import * as S from '@/components/pages/MyPage/MyHeader/styles';
 
-const MyTestHeader = () => {
+const MyHeader = () => {
   return (
-    <S.MyTestHeaderContainer>
+    <S.MyHeaderContainer>
       <div className="pl-4 text-xl text-white">
         <IoIosArrowBack onClick={() => {}} />
       </div>
@@ -13,8 +13,8 @@ const MyTestHeader = () => {
       <div className="pr-4 text-xl text-white">
         <GrAdobeCreativeCloud />
       </div>
-    </S.MyTestHeaderContainer>
+    </S.MyHeaderContainer>
   );
 };
 
-export default MyTestHeader;
+export default MyHeader;

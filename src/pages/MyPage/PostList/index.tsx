@@ -1,6 +1,7 @@
 import tw from 'tailwind-styled-components';
 
 import Card from '@/components/pages/Memo/Card';
+import MyHeader from '@/components/pages/MyPage/MyHeader';
 
 const MyPostList = () => {
   // 임시 데이터
@@ -15,19 +16,21 @@ const MyPostList = () => {
   };
 
   return (
-    <div>
-      <MbtiTitleContainer>
+    <main className="flex flex-col w-full items-center gap-2">
+      <MyHeader />
+      {/* <MbtiTitleContainer>
         <MbtiTitle>
           <Title>MyMemoBTI</Title>
         </MbtiTitle>
-      </MbtiTitleContainer>
+      </MbtiTitleContainer> */}
+      {/* TODO: 무한스크롤 */}
       <div className="flex flex-col gap-2">
         <Card {...a} />
         <Card {...a} />
         <Card {...a} />
         <Card {...a} />
       </div>
-    </div>
+    </main>
   );
 };
 

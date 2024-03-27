@@ -1,5 +1,5 @@
 import Character from '@/components/common/Character';
-import MyTestHeader from '@/components/pages/MyPage/MyTestHeader';
+import MyTestHeader from '@/components/pages/MyPage/MyHeader';
 import MyTestResultCard from '@/components/pages/MyPage/MyTestResultCard';
 
 const MyTestList = () => {
