@@ -1,7 +1,7 @@
-import tw from 'tailwind-styled-components';
-
 import Card from '@/components/pages/Memo/Card';
 import MyHeader from '@/components/pages/MyPage/MyHeader';
+
+import * as S from '@/pages/MyPage/PostList/styles';
 
 const MyPostList = () => {
   // 임시 데이터
@@ -16,41 +16,18 @@ const MyPostList = () => {
   };
 
   return (
-    <main className="flex flex-col w-full items-center gap-2">
+    <S.MyPostListContainer>
       <MyHeader title={'내 MemoBTI'} />
-      {/* <MbtiTitleContainer>
-        <MbtiTitle>
-          <Title>MyMemoBTI</Title>
-        </MbtiTitle>
-      </MbtiTitleContainer> */}
       {/* TODO: 무한스크롤 */}
-      <div className="flex flex-col gap-2">
+      <S.MyCardContainer>
         <Card {...a} />
         <Card {...a} />
         <Card {...a} />
         <Card {...a} />
-      </div>
-    </main>
+      </S.MyCardContainer>
+    </S.MyPostListContainer>
   );
 };
 
 export default MyPostList;
 // 내가 글작성한 목록을 보여줌
-
-const MbtiTitleContainer = tw.div`
-  flex 
-  flex-col 
-  items-center 
-  p-3
-w-full
-`;
-const MbtiTitle = tw.div`
-  flex 
-  w-full 
-  justify-between
-`;
-const Title = tw.div`
-text-4xl
-text-white
-font-bold
-`;
