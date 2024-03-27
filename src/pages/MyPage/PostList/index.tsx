@@ -17,7 +17,7 @@ const MyPostList = () => {
 
   return (
     <main className="flex flex-col w-full items-center gap-2">
-      <MyHeader />
+      <MyHeader title={'내 MemoBTI'} />
       {/* <MbtiTitleContainer>
         <MbtiTitle>
           <Title>MyMemoBTI</Title>
