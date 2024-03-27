@@ -1,11 +1,11 @@
 import Character from '@/components/common/Character';
-import MyTestHeader from '@/components/pages/MyPage/MyTestHeader';
+import MyHeader from '@/components/pages/MyPage/MyHeader';
 import MyTestResultCard from '@/components/pages/MyPage/MyTestResultCard';
 
 const MyTestList = () => {
   return (
     <main className="flex flex-1 flex-col items-center w-full m-auto justify-center">
-      <MyTestHeader />
+      <MyHeader title={'내 MBTI'} />
       <Character bgcolor="#BF1132" gcolor="#FF98CA" />
       <MyTestResultCard />
     </main>

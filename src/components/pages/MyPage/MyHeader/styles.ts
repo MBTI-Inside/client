@@ -1,6 +1,6 @@
 import tw from 'tailwind-styled-components';
 
-export const MyTestHeaderContainer = tw.div`
+export const MyHeaderContainer = tw.div`
     flex 
     items-center 
     w-full 

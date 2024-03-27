@@ -13,6 +13,7 @@ const AdminQuestion = lazy(() => import('@/pages/Admin/Question'));
 const AdminQuestionView = lazy(() => import('@/pages/Admin/Question/View'));
 const MyPage = lazy(() => import('@/pages/MyPage'));
 const MyTest = lazy(() => import('@/pages/MyPage/TestList'));
+const MyMemo = lazy(() => import('@/pages/MyPage/PostList'));
 const Question = lazy(() => import('@/pages/Question'));
 const NotFound = lazy(() => import('@/pages/NotFound'));
 
@@ -68,6 +69,10 @@ const routePaths = [
   {
     path: '/mypage/test-list',
     element: <MyTest />
+  },
+  {
+    path: '/mypage/memo-list',
+    element: <MyMemo />
   },
   {
     path: '/question',
