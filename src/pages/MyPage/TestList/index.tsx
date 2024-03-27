@@ -1,5 +1,4 @@
 import Character from '@/components/common/Character';
-import Pagination from '@/components/common/Pagination';
 import MyTestHeader from '@/components/pages/MyPage/MyTestHeader';
 import MyTestResultCard from '@/components/pages/MyPage/MyTestResultCard';
 
