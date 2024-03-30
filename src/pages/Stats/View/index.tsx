@@ -7,7 +7,7 @@ import Pagination from '@/components/common/Pagination';
 
 const StatsView = () => {
   return (
-    <div className="w-full">
+    <div className="flex flex-col w-full items-center gap-2">
       <MbtiTitleContainer>
         <MbtiTitle>
           {/* TODO: 검색 데이터는 전역 상태 관리 */}
@@ -33,25 +33,36 @@ const StatsView = () => {
         <Badge>내용 : 의자</Badge>
         <Badge>내용 : 상상</Badge>
       </section>
-      <section className="bg-yellow-500">
-        <div>문항 타입 : E</div>
-        <div>문항 질문 : 내가 더 잘 알고 있는 것은?</div>
-        <div>
+      <section className="flex flex-col items-center justify-center bg-yellow-500 w-11/12 p-2 gap-2 rounded-2xl">
+        <div className="flex gap-2 w-full">
+          <Badge className="bg-primary border-0 w-1/12">E</Badge>
+          <span>
+            내가 더 잘 알고 있는 것은? 내가 더 잘 알고 있는 것은? 내가 더 잘
+            알고 있는 것은? 내가 더 잘 알고 있는 것은? 내가 더 잘 알고 있는
+            것은?
+          </span>
+        </div>
+        <div className="flex w-11/12 items-center">
           <progress
             className="progress progress-primary [--progressbg-shdw:yellow] bg-green-300 h-8 "
             value={30}
             max={100}
           />
         </div>
-        <div className="flex flex-row items-center justify-center gap-4">
-          <Badge className="bg-primary border-0">E</Badge>
-          <div>상대방을 기분 좋게 하는 방법 :D</div>
-          <span>58%</span>
+        <div className="flex flex-row items-center justify-center gap-4 w-full">
+          <Badge className="bg-primary border-0 w-1/12">E</Badge>
+          <div className="w-2/3">
+            상대방을 기분 좋게 하는 방법 :D 상대방을 기분 좋게 하는 방법 :D
+            상대방을 기분 좋게 하는 방법 :D{' '}
+          </div>
+          <span className="w-1/6 text-end">58%</span>
         </div>
-        <div className="flex flex-row items-center justify-center gap-4">
-          <Badge className="bg-green-300 border-0">I</Badge>
-          <div>상대방을 기분 나쁘지 않게 배려하는 방법 :)</div>
-          <span>42%</span>
+        <div className="flex flex-row items-center justify-center gap-4 w-full">
+          <Badge className="bg-green-300 border-0 w-1/12">I</Badge>
+          <div className="w-2/3">
+            상대방을 기분 나쁘지 않게 배려하는 방법 :)
+          </div>
+          <span className="w-1/6 text-end">42%</span>
         </div>
       </section>
       <Pagination />
@@ -65,6 +76,7 @@ const MbtiTitleContainer = tw.div`
   flex 
   flex-col 
   items-center 
+  w-full
   p-3
   justify-between
 `;
