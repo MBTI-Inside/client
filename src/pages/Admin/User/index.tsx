@@ -1,5 +1,23 @@
 const UserList = () => {
-  return <>UserList</>;
+  return (
+    <section className="flex flex-row bg-white items-center justify-around w-full h-32 gap-2 rounded-lg">
+      <div className="avatar">
+        <div className="w-20 rounded">
+          <img src="https://avatars.githubusercontent.com/u/63568239?v=4" />
+        </div>
+      </div>
+      <div className="flex flex-col gap-4 justify-end">
+        <div className="flex justify-end items-center gap-2">
+          <div className="flex gap-1">
+            <span className="font-bold">언정차</span>
+            <span>님</span>
+          </div>
+        </div>
+        <div>MBTI : ESTJ</div>
+        <div>작성한 메모 : 13</div>
+      </div>
+    </section>
+  );
 };
 
 export default UserList;
