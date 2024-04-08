@@ -2,19 +2,12 @@ import { GrAdobeCreativeCloud } from 'react-icons/gr';
 import { IoIosArrowBack } from 'react-icons/io';
 
 import Pagination from '@/components/common/Pagination';
+import UserHeader from '@/components/pages/Admin/User/UserHeader';
 
 const UserList = () => {
   return (
     <main className="flex flex-1 flex-col items-center w-full m-auto gap-2">
-      <div className="flex items-center w-full justify-between h-12">
-        <div className="pl-4 text-xl text-white">
-          <IoIosArrowBack onClick={() => {}} />
-        </div>
-        <span className="font-bold text-xl text-white">title</span>
-        <div className="pr-4 text-xl text-white">
-          <GrAdobeCreativeCloud />
-        </div>
-      </div>
+      <UserHeader />
       <section className="flex flex-row bg-white items-center justify-around w-5/6 h-32 gap-2 rounded-lg">
         <div className="avatar">
           <div className="w-20 rounded">
