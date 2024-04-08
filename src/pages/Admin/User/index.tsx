@@ -5,16 +5,18 @@ import Pagination from '@/components/common/Pagination';
 import UserCard from '@/components/pages/Admin/User/UserCard';
 import UserHeader from '@/components/pages/Admin/User/UserHeader';
 
+import * as S from '@/pages/Admin/User/styles';
+
 const UserList = () => {
   return (
-    <main className="flex flex-1 flex-col items-center w-full m-auto gap-2">
+    <S.UserListContainer>
       <UserHeader />
       <UserCard />
       <UserCard />
       <UserCard />
       <UserCard />
       <Pagination />
-    </main>
+    </S.UserListContainer>
   );
 };
 
