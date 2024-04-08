@@ -11,6 +11,7 @@ const StatsMBTI = lazy(() => import('@/pages/Stats/View'));
 const Admin = lazy(() => import('@/pages/Admin'));
 const AdminQuestion = lazy(() => import('@/pages/Admin/Question'));
 const AdminQuestionView = lazy(() => import('@/pages/Admin/Question/View'));
+const AdminUserList = lazy(() => import('@/pages/Admin/User'));
 const MyPage = lazy(() => import('@/pages/MyPage'));
 const MyTest = lazy(() => import('@/pages/MyPage/TestList'));
 const MyMemo = lazy(() => import('@/pages/MyPage/PostList'));
@@ -61,6 +62,10 @@ const routePaths = [
   {
     path: '/admin/question/:id',
     element: <AdminQuestionView />
+  },
+  {
+    path: '/admin/user-list',
+    element: <AdminUserList />
   },
   {
     path: '/mypage',
