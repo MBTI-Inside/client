@@ -1,3 +1,12 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* globals.css 또는 적용하고자 하는 CSS 파일에 추가 */
+.progress-custom-yellow::-webkit-progress-value {
+  background-color: #aaff00 !important;
+}
+
+.progress-custom-yellow::-moz-progress-bar {
+  background-color: #aaff00 !important;
+}
