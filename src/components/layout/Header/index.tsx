@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 
 import SideBar from '@/components/common/SideBar';
 
-import MainLogoSvg from '@/assets/image/mainlogo.svg?react';
+import MainLogoSvg from '@/assets/image/mainlogo.svg';
 
 import * as S from './index.styles';
 

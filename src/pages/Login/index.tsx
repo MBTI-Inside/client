@@ -1,10 +1,10 @@
 import Button from '@/components/common/Button';
 import Character from '@/components/common/Character';
 
-import Google from '@/assets/image/google.svg?react';
-import Kakao from '@/assets/image/kakao.svg?react';
-import Logo from '@/assets/image/logo.svg?react';
-import Naver from '@/assets/image/naver.svg?react';
+import Google from '@/assets/image/google.svg';
+import Kakao from '@/assets/image/kakao.svg';
+import Logo from '@/assets/image/logo.svg';
+import Naver from '@/assets/image/naver.svg';
 
 const Login = () => {
   return (

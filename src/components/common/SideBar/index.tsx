@@ -1,7 +1,7 @@
 import { ReactNode, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 
-import MainLogoSvg from '@/assets/image/mainlogo.svg?react';
+import MainLogoSvg from '@/assets/image/mainlogo.svg';
 
 import * as S from './index.styles';
 
