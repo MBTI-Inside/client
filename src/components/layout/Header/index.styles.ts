@@ -13,7 +13,7 @@ export const HeaderContainer = tw.header`
 
 export const InterfaceContainer = tw.div`
 flex
-w-20
+w-32
 justify-between
 `;
 

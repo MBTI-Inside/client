@@ -1,5 +1,4 @@
-// import { useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import useRouter from '@/hooks/useRouter';
 
 import SideBar from '@/components/common/SideBar';
 
@@ -8,16 +7,21 @@ import MainLogoSvg from '@/assets/image/mainlogo.svg';
 import * as S from './index.styles';
 
 const Header = () => {
+  const { navigateTo } = useRouter();
+
   return (
     <S.HeaderContainer>
-      <NavLink to="/">
+      <a onClick={() => navigateTo('/')}>
         <MainLogoSvg />
-      </NavLink>
-
+      </a>
       <S.InterfaceContainer>
         {/* 로그인 시 표시*/}
-        {/* <S.UserIcon /> */}
-        <S.LoginIcon />
+        <a onClick={() => alert('TODO: 메뉴 보여주기')}>
+          <S.UserIcon />
+        </a>
+        <a onClick={() => navigateTo('/login')}>
+          <S.LoginIcon />
+        </a>
         <SideBar>
           <S.MenuIcon />
         </SideBar>
