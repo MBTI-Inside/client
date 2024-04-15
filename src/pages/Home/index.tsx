@@ -1,27 +1,40 @@
-import { NavLink } from 'react-router-dom';
+import useRouter from '@/hooks/useRouter';
 
+import Button from '@/components/common/Button';
 import Character from '@/components/pages/Home/Character';
 
 import * as S from './index.styles';
 
 const Home = () => {
+  const { navigateTo } = useRouter();
+
   return (
-    <S.Container>
+    <S.HomeContainer>
       <Character />
-      <S.ContentWrapper>
-        <S.Title>ARE YOU T?</S.Title>
-        {/* TODO: 버튼 daisyUI로 공통 컴포넌트로 만들기. */}
-        <S.Button>
-          <NavLink to="/test">테스트 하러가기</NavLink>
-        </S.Button>
-        <S.Button>
-          <NavLink to="/stats">통계 보러가기</NavLink>
-        </S.Button>
-        <S.Button>
-          <NavLink to="/board">담벼락 보러가기</NavLink>
-        </S.Button>
-      </S.ContentWrapper>
-    </S.Container>
+      <S.ContentSection>
+        <S.Title>MBTI Inside</S.Title>
+        <S.ButtonGroup>
+          <Button
+            classProp="w-80 h-14 text-lg bg-[#FFA500] hover:bg-gray-700 text-white border-none"
+            onClick={() => navigateTo('/test')}
+          >
+            테스트 하러가기
+          </Button>
+          <Button
+            classProp="w-80 h-14 text-lg bg-[#4CAF50] hover:bg-gray-700 text-white border-none"
+            onClick={() => navigateTo('/stats')}
+          >
+            통계 보러가기
+          </Button>
+          <Button
+            classProp="w-80 h-14 text-lg bg-[#32BEBE] hover:bg-gray-700 text-[#333333] border-none"
+            onClick={() => navigateTo('/memo')}
+          >
+            담벼락 보러가기
+          </Button>
+        </S.ButtonGroup>
+      </S.ContentSection>
+    </S.HomeContainer>
   );
 };
 
