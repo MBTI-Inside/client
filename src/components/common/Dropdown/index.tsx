@@ -20,17 +20,15 @@ const Dropdown: React.FC<DropdownProps> = ({ items }) => {
       {isOpen && (
         <div
           ref={ref}
-          style={{
-            position: 'absolute',
-            backgroundColor: 'white',
-            border: '1px solid black'
-          }}
+          className="relative mt-2 w-auto rounded-md bg-white shadow-lg border border-gray-200"
+          style={{ zIndex: 11250 }} // 필요한 경우 zIndex 조정
         >
           {items.map((item) => (
             <div
               key={item.id}
+              className="text-gray-700 hover:bg-gray-100 cursor-pointer p-2 rounded-md"
               onClick={() => {
-                item.onClick(); // 아이템 클릭시 실행될 로직
+                item.onClick(); // 아이템 클릭 시 실행될 로직
                 toggleDropdown(); // 메뉴 아이템 클릭 후 드롭다운 닫기
               }}
             >
