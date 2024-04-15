@@ -1,27 +1,30 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 
 import useDetectClose from '@/hooks/useDetectClose';
 
 interface DropdownProps {
   items: { id: number; label: string; onClick: () => void }[];
+  children: React.ReactNode;
 }
 
-const Dropdown: React.FC<DropdownProps> = ({ items }) => {
+const Dropdown: React.FC<DropdownProps> = ({ items, children }) => {
   const [isOpen, ref, toggleDropdown] = useDetectClose(false);
 
-  const handleToggleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
-    e.stopPropagation(); // 이벤트 버블링을 중지
-    toggleDropdown();
-  };
+  const handleToggleClick = useCallback(
+    (e: React.MouseEvent<HTMLDivElement>) => {
+      e.stopPropagation(); // 이벤트 버블링을 중지
+      toggleDropdown();
+    },
+    [toggleDropdown]
+  );
 
   return (
     <div>
-      <button onClick={handleToggleClick}>Toggle Dropdown</button>
+      <div onClick={handleToggleClick}>{children}</div>
       {isOpen && (
         <div
           ref={ref}
-          className="relative mt-2 w-auto rounded-md bg-white shadow-lg border border-gray-200"
-          style={{ zIndex: 11250 }} // 필요한 경우 zIndex 조정
+          className="absolute mt-2 z-50 w-auto rounded-md bg-white shadow-lg border border-gray-200"
         >
           {items.map((item) => (
             <div
