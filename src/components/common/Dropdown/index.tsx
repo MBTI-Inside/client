@@ -2,6 +2,8 @@ import React, { useCallback } from 'react';
 
 import useDetectClose from '@/hooks/useDetectClose';
 
+import * as S from '@/components/common/Dropdown/styles';
+
 interface DropdownProps {
   items: { id: number; label: string; onClick: () => void }[];
   children: React.ReactNode;
@@ -22,23 +24,19 @@ const Dropdown: React.FC<DropdownProps> = ({ items, children }) => {
     <div>
       <div onClick={handleToggleClick}>{children}</div>
       {isOpen && (
-        <div
-          ref={ref}
-          className="absolute mt-2 z-50 w-auto rounded-md bg-white shadow-lg border border-gray-200"
-        >
+        <S.DropdownMenu ref={ref}>
           {items.map((item) => (
-            <div
+            <S.DropdownMenuItem
               key={item.id}
-              className="text-gray-700 hover:bg-gray-100 cursor-pointer p-2 rounded-md"
               onClick={() => {
                 item.onClick(); // 아이템 클릭 시 실행될 로직
                 toggleDropdown(); // 메뉴 아이템 클릭 후 드롭다운 닫기
               }}
             >
               {item.label}
-            </div>
+            </S.DropdownMenuItem>
           ))}
-        </div>
+        </S.DropdownMenu>
       )}
     </div>
   );
