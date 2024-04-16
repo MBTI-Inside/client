@@ -33,33 +33,15 @@ export const Ul = tw.ul`
   bg-base-200
   text-base-content
   bg-regal-purple
-`;
-
-export const Li = tw.li`
-  mt-9
-  h-14
-  w-full 
-  text-lg
-  btn
-  rounded-full
-  border-none
-  font-bold
-`;
-
-export const FooterLi = tw.li`
-  flex
-  mt-auto
-  pointer-events-none
-`;
-
-export const FooterDiv = tw.div`
-  self-center
-  text-black
+  gap-8
 `;
 
 export const UserContainer = tw.div`
   flex
   flex-row
+  mt-auto
+  self-center
+  text-black
 `;
 
 export const UserProfile = tw.div`
