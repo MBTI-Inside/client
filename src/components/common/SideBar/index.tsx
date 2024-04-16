@@ -5,6 +5,7 @@ import useRouter from '@/hooks/useRouter';
 
 import MainLogoSvg from '@/assets/image/mainlogo.svg';
 
+import Button from '../Button';
 import * as S from './index.styles';
 
 interface SideBarProps {
@@ -43,31 +44,36 @@ const SideBar = ({ children }: SideBarProps) => {
           <a onClick={() => handleSideBarToggle('/')}>
             <MainLogoSvg />
           </a>
-          <a onClick={() => handleSideBarToggle('/test')}>
-            <S.Li className="bg-[#FFA500]">테스트 하러가기</S.Li>
-          </a>
-          <a onClick={() => handleSideBarToggle('/memo')}>
-            <S.Li className="bg-[#4CAF50]">담벼락 보러가기</S.Li>
-          </a>
-          <a onClick={() => handleSideBarToggle('/stats')}>
-            <S.Li className="bg-[#32BEBE]">통계 보러가기</S.Li>
-          </a>
+          <Button
+            classProp="w-full h-14 text-lg bg-[#FFA500] text-white border-none"
+            onClick={() => handleSideBarToggle('/test')}
+          >
+            테스트 하러가기
+          </Button>
+          <Button
+            classProp="w-full h-14 text-lg bg-[#4CAF50] text-white border-none"
+            onClick={() => handleSideBarToggle('/stats')}
+          >
+            통계 보러가기
+          </Button>
+          <Button
+            classProp="w-full h-14 text-lg bg-[#32BEBE] text-[#333333] border-none"
+            onClick={() => handleSideBarToggle('/memo')}
+          >
+            담벼락 보러가기
+          </Button>
           {/* TODO: 회원정보 보여주기 zustand */}
-          <S.FooterLi>
-            <S.FooterDiv>
-              <S.UserContainer>
-                <S.UserProfile>
-                  <img src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
-                </S.UserProfile>
-                <S.UserInfoContainer>
-                  {/* 닉네임 글자수 제한 : 한글 5자 영문 10자, 한영 합쳐서 10byte 제한*/}
-                  <S.UserInfo>{'ababababab'}님 환영합니다!</S.UserInfo>
-                  <S.UserInfo>최근 MBTI : {'ESTJ'}</S.UserInfo>
-                  <S.UserInfo>메모지 수 : {123} 스티커</S.UserInfo>
-                </S.UserInfoContainer>
-              </S.UserContainer>
-            </S.FooterDiv>
-          </S.FooterLi>
+          <S.UserContainer>
+            <S.UserProfile>
+              <img src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+            </S.UserProfile>
+            <S.UserInfoContainer>
+              {/* 닉네임 글자수 제한 : 한글 5자 영문 10자, 한영 합쳐서 10byte 제한*/}
+              <S.UserInfo>{'ababababab'}님 환영합니다!</S.UserInfo>
+              <S.UserInfo>최근 MBTI : {'ESTJ'}</S.UserInfo>
+              <S.UserInfo>메모지 수 : {123} 스티커</S.UserInfo>
+            </S.UserInfoContainer>
+          </S.UserContainer>
         </S.Ul>
       </S.SideBarContentContainer>
     </S.SideBarContainer>
