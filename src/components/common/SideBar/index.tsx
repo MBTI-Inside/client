@@ -66,12 +66,12 @@ const SideBar = ({ children }: SideBarProps) => {
             <S.UserProfile>
               <img src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
             </S.UserProfile>
-            <S.UserInfoContainer>
+            <S.UserInfo>
               {/* 닉네임 글자수 제한 : 한글 5자 영문 10자, 한영 합쳐서 10byte 제한*/}
-              <S.UserInfo>{'ababababab'}님 환영합니다!</S.UserInfo>
-              <S.UserInfo>최근 MBTI : {'ESTJ'}</S.UserInfo>
-              <S.UserInfo>메모지 수 : {123} 스티커</S.UserInfo>
-            </S.UserInfoContainer>
+              <div>{'ababababab'}님 환영합니다!</div>
+              <div>최근 MBTI : {'ESTJ'}</div>
+              <div>메모지 수 : {123}</div>
+            </S.UserInfo>
           </S.UserContainer>
         </S.Ul>
       </S.SideBarContentContainer>

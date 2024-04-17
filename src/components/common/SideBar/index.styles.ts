@@ -37,11 +37,7 @@ export const Ul = tw.ul`
 `;
 
 export const UserContainer = tw.div`
-  flex
-  flex-row
-  mt-auto
-  self-center
-  text-black
+flex flex-row bg-white items-center justify-around w-full h-28 gap-1 rounded-lg mt-auto
 `;
 
 export const UserProfile = tw.div`
@@ -50,10 +46,8 @@ export const UserProfile = tw.div`
   rounded
 `;
 
-export const UserInfoContainer = tw.div`
-  ml-4
-`;
-
 export const UserInfo = tw.div`
-  text-sm
+  flex 
+  flex-col 
+  gap-1
 `;
