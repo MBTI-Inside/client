@@ -34,7 +34,7 @@ const Stats = () => {
     }
   ];
 
-  const options: ApexOptions = {
+  const treemapOptions: ApexOptions = {
     legend: {
       show: false
     },
@@ -50,22 +50,22 @@ const Stats = () => {
       colors: ['#000']
     },
     colors: [
-      '#3B93A5',
-      '#F7B844',
-      '#ADD8C7',
-      '#EC3C65',
-      '#CDD7B6',
-      '#C1F666',
-      '#D43F97',
-      '#1E5D8C',
-      '#421243',
-      '#7F94B0',
-      '#EF6537',
-      '#C0ADDB',
-      '#C1AFB5',
-      '#AA12BB',
-      '#F8BAB5',
-      '#119BA3'
+      '#4A235A', // 진한 보라색
+      '#5B2C6F', // 보라색
+      '#922B21', // 진한 적색
+      '#76448A', // 어두운 보라색
+      '#1F618D', // 진한 파란색
+      '#AF7AC5', // 연보라색
+      '#1ABC9C', // 진한 민트색
+      '#F5B041', // 금색
+      '#839192', // 회색
+      '#A9CCE3', // 하늘색
+      '#E6B0AA', // 연분홍색
+      '#A3E4D7', // 연민트색
+      '#3498DB', // 밝은 파란색
+      '#F7DC6F', // 밝은 노란색
+      '#AED6F1', // 페이스트 블루
+      '#F1948A' // 연한 코랄
     ],
     plotOptions: {
       treemap: {
@@ -79,12 +79,11 @@ const Stats = () => {
     <div className="w-full flex flex-col justify-center items-center gap-4">
       <ReactApexChart
         className="w-11/12"
-        options={options}
+        options={treemapOptions}
         series={series}
         type="treemap"
         height={400}
       />
-
       {/* TODO: 모달 닫을 때 콜백함수 추가 필요 */}
       <Button
         classProp="w-80 h-14 text-lg bg-blue-500 hover:bg-blue-600 text-white"
