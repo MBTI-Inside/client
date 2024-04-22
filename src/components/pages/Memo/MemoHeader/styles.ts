@@ -21,8 +21,7 @@ export const Title = tw.div`
   text-white
 `;
 
-export const Badge = tw.div`
-  badge 
-  badge-accent 
-  m-1
+export const ButtonGroup = tw.div`
+  flex 
+  gap-2
 `;
