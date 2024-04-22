@@ -1,10 +1,10 @@
 import tw from 'tailwind-styled-components';
 
 // TODO: 색상 props로 전달받아야 함.
-export const CardWrapper = tw.section`
+export const CardContainer = tw.section`
     card
-    w-80 
-    h-60 
+    w-11/12
+    h-40 
     bg-green-300
     shadow-xl
 `;
@@ -26,7 +26,7 @@ export const Title = tw.h2`
 
 export const Content = tw.div`
     pt-2 
-    line-clamp-4
+    line-clamp-2
 `;
 
 export const CardInfoContainer = tw.section`

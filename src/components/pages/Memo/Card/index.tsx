@@ -3,11 +3,23 @@ import { IoHeartOutline } from 'react-icons/io5';
 
 import * as S from '@/components/pages/Memo/Card/index.styles';
 
-const Card = (params: any) => {
-  const { id, title, content, date, mbti, likeCount, cmtCount } = params;
+export interface CardProps {
+  memo: {
+    id: number;
+    title: string;
+    content: string;
+    date: any; // TODO: date 어떻게 표시할 것인지 논의 후 타입 정의할 것
+    mbti: string;
+    likeCount: number;
+    cmtCount: number;
+  };
+}
+
+const Card = ({ memo }: CardProps) => {
+  const { id, title, content, date, mbti, likeCount, cmtCount } = memo;
 
   return (
-    <S.CardWrapper>
+    <S.CardContainer>
       <S.CardBody>
         <S.CardContent>
           <S.Title>{title}</S.Title>
@@ -34,7 +46,7 @@ const Card = (params: any) => {
           </S.CardInfo>
         </S.CardInfoContainer>
       </S.CardBody>
-    </S.CardWrapper>
+    </S.CardContainer>
   );
 };
 
