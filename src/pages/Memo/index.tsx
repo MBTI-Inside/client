@@ -1,27 +1,29 @@
 import { useNavigate } from 'react-router-dom';
 
 import Button from '@/components/common/Button';
+import Card from '@/components/pages/Memo/Card';
 import MemoHeader from '@/components/pages/Memo/MemoHeader';
 
+import * as S from '@/pages/Memo/styles';
+
 const Memo = () => {
-  const nav = useNavigate();
+  const memo = {
+    id: 134178,
+    title: 'Lorem Ipsum is simply dummy text of the printing',
+    content:
+      'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.',
+    date: '3일 전',
+    mbti: 'ESTJ',
+    likeCount: 30,
+    cmtCount: 2
+  };
 
   return (
-    <>
+    <S.MemoContainer>
       <MemoHeader />
-      <div>
-        <h2>제목</h2>
-        <h3>내용</h3>
-        <span>며칠 전</span>
-        <hr />
-        <div>
-          <span>(MBTI유형)</span>
-          <span>하트버튼, 숫자</span>
-          <span>댓글버튼, 숫자</span>
-        </div>
-      </div>
-      <Button onClick={() => nav('/memo-view/3')}>상세</Button>
-    </>
+      <Card memo={memo} />
+      <Card memo={memo} />
+    </S.MemoContainer>
   );
 };
 
