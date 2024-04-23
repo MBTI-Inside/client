@@ -1,6 +1,3 @@
-import { useNavigate } from 'react-router-dom';
-
-import Button from '@/components/common/Button';
 import Card from '@/components/pages/Memo/Card';
 import MemoHeader from '@/components/pages/Memo/MemoHeader';
 
@@ -21,6 +18,12 @@ const Memo = () => {
   return (
     <S.MemoContainer>
       <MemoHeader />
+      <Card memo={memo} />
+      <Card memo={memo} />
+      <Card memo={memo} />
+      <Card memo={memo} />
+      <Card memo={memo} />
+      <Card memo={memo} />
       <Card memo={memo} />
       <Card memo={memo} />
     </S.MemoContainer>

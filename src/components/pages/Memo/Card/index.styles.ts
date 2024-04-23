@@ -11,28 +11,25 @@ export const CardContainer = tw.section`
 
 export const CardBody = tw.section`
     card-body 
-    p-6 
+    p-4
     justify-between
 `;
 
 export const CardContent = tw.article`
-    h-32
 `;
 
-export const Title = tw.h2`
+export const Title = tw.h3`
     card-title 
     line-clamp-1
 `;
 
 export const Content = tw.div`
-    pt-2 
     line-clamp-2
 `;
 
 export const CardInfoContainer = tw.section`
     flex 
     flex-col 
-    h-16 
     justify-between
 `;
 

@@ -4,4 +4,5 @@ export const MemoContainer = tw.div`
     flex 
     flex-col 
     items-center
+    gap-3
 `;
