@@ -1,6 +1,8 @@
 import { AiOutlineComment } from 'react-icons/ai';
 import { IoHeartOutline } from 'react-icons/io5';
 
+import useRouter from '@/hooks/useRouter';
+
 import * as S from '@/components/pages/Memo/Card/index.styles';
 
 export interface CardProps {
@@ -17,9 +19,10 @@ export interface CardProps {
 
 const Card = ({ memo }: CardProps) => {
   const { id, title, content, date, mbti, likeCount, cmtCount } = memo;
+  const { navigateTo } = useRouter();
 
   return (
-    <S.CardWrapper>
+    <S.CardWrapper onClick={() => navigateTo(`/memo-view/${id}`)}>
       <S.CardBody>
         <article>
           <S.Title>{title}</S.Title>
