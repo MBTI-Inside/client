@@ -19,17 +19,17 @@ const Card = ({ memo }: CardProps) => {
   const { id, title, content, date, mbti, likeCount, cmtCount } = memo;
 
   return (
-    <S.CardContainer>
+    <S.CardWrapper>
       <S.CardBody>
-        <S.CardContent>
+        <article>
           <S.Title>{title}</S.Title>
           <S.Content>{content}</S.Content>
-        </S.CardContent>
+        </article>
         <S.CardInfoContainer>
           <S.MemoDate>{date}</S.MemoDate>
           <hr />
           <S.CardInfo>
-            <S.MBTI>{mbti}</S.MBTI>
+            <div className="font-bold">{mbti}</div>
             <S.HistoryContainer>
               <S.History>
                 <IoHeartOutline
@@ -46,7 +46,7 @@ const Card = ({ memo }: CardProps) => {
           </S.CardInfo>
         </S.CardInfoContainer>
       </S.CardBody>
-    </S.CardContainer>
+    </S.CardWrapper>
   );
 };
 
