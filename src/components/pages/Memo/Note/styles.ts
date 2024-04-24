@@ -5,8 +5,7 @@ interface ColorProps {
 }
 
 export const NoteContainer = tw.div`
-    w-full 
-    bg-black
+    flex-1
 `;
 
 export const NoteHeader = tw.header`
@@ -28,9 +27,7 @@ export const InputTitle = tw.input`
     input-bordered 
     w-full 
     outline-0 
-    mb-6 
     p-3 
-    bg-inherit 
     text-white 
     border-solid 
     border-white
@@ -43,7 +40,6 @@ export const InputContent = tw.textarea`
     outline-0 
     h-80 
     resize-none 
-    mb-6 
     p-3 
     text-base 
     bg-inherit 
@@ -55,6 +51,5 @@ export const InputContent = tw.textarea`
 export const MemoColor = tw.div<ColorProps>`
     w-5 
     h-5 
-    ml-3 
     ${(p) => (p.bg ? p.bg : p.bg)}
 `;
