@@ -1,5 +1,7 @@
 import { ReactNode, createContext, useContext, useState } from 'react';
+import { MdClose } from 'react-icons/md';
 
+import Button from '@/components/common/Button';
 import Portal from '@/components/common/Portal';
 
 interface ModalProps {
@@ -94,13 +96,15 @@ const ModalProvider: React.FC<{ children: React.ReactNode }> = ({
                   // overscroll-behavior: contain;
                 }}
               >
-                <button
-                  className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2"
-                  onClick={closeModal}
-                >
-                  ✕
-                </button>
-                <h3 className="font-bold text-lg">{modalProps.title}</h3>
+                <h3 className="flex justify-between font-bold text-lg text-white">
+                  <span>{modalProps.title}</span>
+                  <Button
+                    classProp="btn btn-sm btn-circle btn-ghost text-white text-xl"
+                    onClick={closeModal}
+                  >
+                    <MdClose />
+                  </Button>
+                </h3>
                 {modalProps.component}
               </div>
             </section>
