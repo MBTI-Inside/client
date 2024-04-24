@@ -75,26 +75,26 @@ const ModalProvider: React.FC<{ children: React.ReactNode }> = ({
               }}
             >
               <div
-                className="overflow-y-auto overscroll-contain p-6 bg-black"
+                className="overflow-y-auto overscroll-contain p-6 bg-black w-full h-full flex flex-col gap-4"
                 // className="p-6"
                 key={index}
-                style={{
-                  width: '100%',
-                  height: '100%'
-                  // transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
-                  // --tw-bg-opacity: 1;
-                  // background-color: var(--fallback-b1,oklch(var(--b1)/var(--tw-bg-opacity)));
-                  // padding: 1.5rem;
-                  // transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-backdrop-filter;
-                  // transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
-                  // transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-backdrop-filter;
-                  // transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-                  // transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
-                  // transition-duration: 200ms;
-                  // box-shadow: rgba(0, 0, 0, 0.25) 0px 25px 50px -12px;
-                  // overflow-y: auto;
-                  // overscroll-behavior: contain;
-                }}
+                style={
+                  {
+                    // transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+                    // --tw-bg-opacity: 1;
+                    // background-color: var(--fallback-b1,oklch(var(--b1)/var(--tw-bg-opacity)));
+                    // padding: 1.5rem;
+                    // transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-backdrop-filter;
+                    // transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
+                    // transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-backdrop-filter;
+                    // transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+                    // transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
+                    // transition-duration: 200ms;
+                    // box-shadow: rgba(0, 0, 0, 0.25) 0px 25px 50px -12px;
+                    // overflow-y: auto;
+                    // overscroll-behavior: contain;
+                  }
+                }
               >
                 <h3 className="flex justify-between font-bold text-lg text-white">
                   <span>{modalProps.title}</span>
