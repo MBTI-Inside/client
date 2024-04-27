@@ -1,8 +1,11 @@
 import tw from 'tailwind-styled-components';
 
-export const CommentContainer = tw.div`
-    px-6 
-    w-full
+export const CommentContainer = tw.section`
+    card 
+    gap-2
+    w-11/12 
+    justify-between 
+    shadow-xl 
 `;
 
 export const CommentHeader = tw.div`

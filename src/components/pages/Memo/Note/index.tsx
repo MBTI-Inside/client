@@ -26,6 +26,7 @@ const Note = (params: any) => {
         defaultValue={titleRef.current}
         ref={titleRef}
       />
+      {/* TODO: 글자수 입력 제한 */}
       <S.InputContent
         placeholder="내용을 입력하세요."
         defaultValue={contentRef.current}

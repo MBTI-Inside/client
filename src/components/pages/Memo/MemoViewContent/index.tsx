@@ -11,6 +11,7 @@ const MemoViewContent = (params: any) => {
   return (
     <S.MemoViewContentContainer>
       <S.Title>{title}</S.Title>
+      {/* TODO: 글자수 입력 제한 */}
       <S.Content>{content}</S.Content>
       <S.ContentInfo>
         <S.ContentGroup>
@@ -24,7 +25,7 @@ const MemoViewContent = (params: any) => {
           </Button>
         </S.ContentGroup>
         <S.ContentGroup>
-          {userName} 작성({date})
+          {userName} ({date})
         </S.ContentGroup>
       </S.ContentInfo>
     </S.MemoViewContentContainer>
