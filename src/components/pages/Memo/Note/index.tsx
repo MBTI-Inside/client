@@ -1,6 +1,7 @@
 import { useRef, useState } from 'react';
 import { FaExchangeAlt } from 'react-icons/fa';
 
+import Badge from '@/components/common/Badge';
 import Button from '@/components/common/Button';
 import * as S from '@/components/pages/Memo/Note/styles';
 
@@ -18,36 +19,33 @@ const Note = (params: any) => {
   });
 
   return (
-    <S.NoteContainer>
-      {/* <S.NoteHeader>
-        <S.Title>{'ESTJ'}</S.Title>
-        <Button onClick={() => {}}>
-          <FaExchangeAlt />
-        </Button>
-      </S.NoteHeader> */}
-      <form className="flex flex-col w-full h-full justify-center gap-8">
-        <S.InputTitle
-          type="text"
-          placeholder="제목"
-          defaultValue={titleRef.current}
-          ref={titleRef}
-        />
-        <S.InputContent
-          placeholder="내용"
-          defaultValue={contentRef.current}
-          ref={contentRef}
-        />
-        <Button onClick={() => {}}>
-          <span>{'ESTJ'}</span>
-          <FaExchangeAlt />
-        </Button>
-        <Button classProp={'w-full h-14 text-lg text-white'}>
-          <span>배경 색상</span>
-          <S.MemoColor bg="bg-[#FF9D42]"></S.MemoColor>
-        </Button>
-        <Button classProp={'w-full h-14 text-lg text-white'}>작성 완료</Button>
-      </form>
-    </S.NoteContainer>
+    <S.NoteFormContainer>
+      <S.InputTitle
+        type="text"
+        placeholder="제목을 입력하세요."
+        defaultValue={titleRef.current}
+        ref={titleRef}
+      />
+      <S.InputContent
+        placeholder="내용을 입력하세요."
+        defaultValue={contentRef.current}
+        ref={contentRef}
+      />
+      <Button
+        classProp="w-full h-14 text-lg text-white bg-accent"
+        onClick={() => {}}
+      >
+        <span>{'ESTJ'}</span>
+        <FaExchangeAlt />
+      </Button>
+      <Button classProp="w-full h-14 text-lg text-white bg-primary">
+        <span>배경 색상</span>
+        <S.MemoColor bg="bg-[#FF9D42]" />
+      </Button>
+      <Button classProp="w-full h-14 text-lg text-white bg-secondary">
+        작성 완료
+      </Button>
+    </S.NoteFormContainer>
   );
 };
 

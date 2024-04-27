@@ -4,16 +4,13 @@ interface ColorProps {
   bg: string;
 }
 
-export const NoteContainer = tw.div`
-    flex-1
-`;
-
-export const NoteHeader = tw.header`
+export const NoteFormContainer = tw.div`
     flex 
-    mb-4 
-    items-center 
-    justify-between 
-    px-4
+    flex-col 
+    w-full 
+    h-full 
+    justify-center 
+    gap-8
 `;
 
 export const Title = tw.div`
@@ -24,28 +21,22 @@ export const Title = tw.div`
 
 export const InputTitle = tw.input`
     input 
-    input-bordered 
+    input-primary
     w-full 
-    outline-0 
-    p-3 
+    bg-inherit
+    p-4
     text-white 
-    border-solid 
-    border-white
 `;
 
 export const InputContent = tw.textarea`
     textarea 
-    textarea-bordered 
+    textarea-primary 
     w-full 
-    outline-0 
     h-80 
-    resize-none 
-    p-3 
+    p-4
     text-base 
     bg-inherit 
     text-white 
-    border-solid 
-    border-white
 `;
 
 export const MemoColor = tw.div<ColorProps>`
