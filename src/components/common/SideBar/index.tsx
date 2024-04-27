@@ -61,6 +61,12 @@ const SideBar = ({ children }: SideBarProps) => {
           >
             담벼락 보러가기
           </Button>
+          <Button
+            classProp="w-full h-14 text-lg bg-[#003366] text-white border-none"
+            onClick={() => handleSideBarToggle('/admin')}
+          >
+            어드민 바로가기
+          </Button>
           {/* TODO: 회원정보 보여주기 zustand */}
           <S.UserContainer>
             <S.UserProfile>
