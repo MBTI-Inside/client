@@ -1,6 +1,5 @@
 import Comment from '@/components/pages/Memo/Comment';
 import MemoViewContent from '@/components/pages/Memo/MemoViewContent';
-import MemoViewFooter from '@/components/pages/Memo/MemoViewFooter';
 import MemoViewHeader from '@/components/pages/Memo/MemoViewHeader';
 
 const MemoView = () => {
@@ -20,7 +19,6 @@ const MemoView = () => {
     <div className="bg-green-700 flex flex-1 flex-col gap-4 items-center">
       <MemoViewHeader />
       <MemoViewContent data={a} />
-      <MemoViewFooter data={a} />
       <Comment />
     </div>
   );
