@@ -12,11 +12,12 @@ const MemoView = () => {
     date: '3일 전',
     mbti: 'ESTJ',
     like_count: 30,
-    cmt_count: 2
+    cmt_count: 2,
+    userName: '언정차'
   };
   return (
     // TODO: 배경색 받아서 설정
-    <div className="bg-green-700 flex flex-col items-center">
+    <div className="bg-green-700 flex flex-1 flex-col gap-4 items-center">
       <MemoViewHeader />
       <MemoViewContent data={a} />
       <MemoViewFooter data={a} />
