@@ -2,7 +2,7 @@ import { IoHeartOutline } from 'react-icons/io5';
 import { IoHeartSharp } from 'react-icons/io5';
 
 import Button from '@/components/common/Button';
-import * as S from '@/components/pages/Memo/MemoViewContent/index.styles';
+import * as S from '@/components/pages/Memo/MemoViewContent/styles';
 
 const MemoViewContent = (params: any) => {
   const { id, title, content, like_count, cmt_count, userName, date } =
@@ -25,7 +25,8 @@ const MemoViewContent = (params: any) => {
           </Button>
         </S.ContentGroup>
         <S.ContentGroup>
-          {userName} ({date})
+          <span className="text-sm">{userName}</span>
+          <span className="text-xs">{date}</span>
         </S.ContentGroup>
       </S.ContentInfo>
     </S.MemoViewContentContainer>

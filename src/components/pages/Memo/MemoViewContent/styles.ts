@@ -24,9 +24,11 @@ export const ContentInfo = tw.section`
     flex 
     justify-between 
     items-center
+    gap-8
 `;
 
 export const ContentGroup = tw.div`
     flex 
-    items-center
+    flex-col
+    items-end
 `;
