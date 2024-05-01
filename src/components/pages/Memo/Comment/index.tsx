@@ -1,3 +1,8 @@
+import { AiOutlineComment } from 'react-icons/ai';
+import { CiMenuKebab } from 'react-icons/ci';
+import { IoHeartOutline } from 'react-icons/io5';
+
+import Button from '@/components/common/Button';
 import CommentCard from '@/components/pages/Memo/Comment/CommentCard';
 import CommentPost from '@/components/pages/Memo/Comment/CommentPost';
 import * as S from '@/components/pages/Memo/Comment/index.styles';
@@ -5,13 +10,11 @@ import * as S from '@/components/pages/Memo/Comment/index.styles';
 const Comment = () => {
   return (
     <S.CommentContainer>
-      <S.CommentHeader>
-        <div className="text-xl">댓글</div>
-        <div className="flex ">
-          <div className="text-bold">등록순</div>
-          <div className="ml-3">최신순</div>
-        </div>
-      </S.CommentHeader>
+      <div className="flex items-center gap-2 text-xl">
+        <span>댓글</span>
+        <AiOutlineComment />
+      </div>
+      <CommentCard />
       <CommentCard />
       <CommentPost />
     </S.CommentContainer>
