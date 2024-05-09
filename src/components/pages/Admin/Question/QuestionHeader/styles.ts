@@ -4,7 +4,6 @@ export const QuestionTitleContainer = tw.div`
   flex 
   flex-col 
   items-center 
-  p-3
   justify-between
   gap-2
 `;
