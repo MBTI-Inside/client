@@ -1,9 +1,13 @@
+import useRouter from '@/hooks/useRouter';
+
 import Badge from '@/components/common/Badge';
 import * as S from '@/components/pages/Admin/Question/QuestionCard/styles';
 
 const QuestionCard = () => {
+  const { navigateTo } = useRouter();
+
   return (
-    <S.QuestionCardContainer>
+    <S.QuestionCardContainer onClick={() => navigateTo('/admin/question/3')}>
       <S.QuestionTitle>
         <Badge content="energy" isClose={false} />
         <div className="line-clamp-2">
