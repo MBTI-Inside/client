@@ -4,8 +4,8 @@ export const QuestionTitleContainer = tw.div`
   flex 
   flex-col 
   items-center 
-  p-3
   justify-between
+  gap-2
 `;
 
 export const QuestionTitle = tw.div`
@@ -17,10 +17,10 @@ export const QuestionTitle = tw.div`
 export const Title = tw.div`
   text-4xl
   font-bold
+  text-white
 `;
 
-export const Badge = tw.div`
-  badge 
-  badge-secondary 
-  m-1
+export const ButtonGroup = tw.div`
+  flex 
+  gap-2
 `;

@@ -42,20 +42,6 @@ export const AnswerCard = tw.div`
 export const QuestionType = tw.section`
     flex 
     gap-2 
-    justify-between 
+    justify-evenly 
     items-center
-`;
-
-export const TypeRate = tw.section`
-    flex 
-    gap-2 
-    items-center 
-    justify-between
-`;
-
-export const Progress = tw.progress`
-    progress 
-    progress-primary 
-    w-44 
-    bg-yellow-200
 `;

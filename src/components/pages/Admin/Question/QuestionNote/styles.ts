@@ -1,10 +1,12 @@
 import tw from 'tailwind-styled-components';
 
 export const NoteContainer = tw.div`
-    flex
-    flex-col
-    w-full
-    bg-black
+     flex 
+    flex-col 
+    w-full 
+    h-full 
+    justify-center 
+    gap-6
 `;
 
 export const NoteHeader = tw.header`
@@ -15,18 +17,6 @@ export const NoteHeader = tw.header`
     px-4
 `;
 
-export const InputForm = tw.form`
-    flex 
-    flex-col 
-    flex-1 
-    gap-4
-`;
-
-export const InputFormControl = tw.div`
-    form-control 
-    w-full
-`;
-
 export const Title = tw.div`
     text-4xl 
     font-bold 
@@ -34,28 +24,20 @@ export const Title = tw.div`
 `;
 
 export const InputTitle = tw.input`
-    input 
-    input-bordered 
+     input 
+    input-accent
     w-full 
-    outline-0 
-    p-3 
-    bg-inherit 
+    bg-inherit
+    p-4
     text-white 
-    border-solid 
-    border-white
 `;
 
 export const InputContent = tw.textarea`
-    textarea 
-    textarea-bordered 
+    textarea  
     w-full 
-    outline-0 
-    h-40 
-    resize-none 
-    p-3 
+    h-32 
+    p-4
     text-base 
     bg-inherit 
     text-white 
-    border-solid 
-    border-white
 `;
