@@ -1,14 +1,12 @@
-import { FaExchangeAlt, FaPlus, FaSearch } from 'react-icons/fa';
+import { FaPlus, FaSearch } from 'react-icons/fa';
 
 import { useModalContext } from '@/hooks/useModal';
 
 import Badge from '@/components/common/Badge';
 import Button from '@/components/common/Button';
-import MBTITypes from '@/components/common/MBTITypes';
 import Search from '@/components/common/Search';
 import * as S from '@/components/pages/Admin/Question/QuestionHeader/styles';
 import QuestionNote from '@/components/pages/Admin/Question/QuestionNote';
-import Note from '@/components/pages/Memo/Note';
 
 const QuestionHeader = () => {
   const { openModal } = useModalContext();
