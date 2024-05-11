@@ -1,7 +1,14 @@
 import tw from 'tailwind-styled-components';
 
 export const MyTestResultCardContainer = tw.section`
-flex flex-col items-center justify-between bg-[#BF1132] shadow-xl p-5
+    flex 
+    flex-col 
+    items-center 
+    justify-between 
+    bg-[#BF1132] 
+    shadow-xl 
+    p-4
+    w-full
 `;
 
 export const MyTestStatisticContainer = tw.section`
