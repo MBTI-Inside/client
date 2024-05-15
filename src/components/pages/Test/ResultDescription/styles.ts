@@ -22,8 +22,8 @@ export const Content = tw.div`
 `;
 
 export const BadgeGroup = tw.div`
-    flex 
-    items-center 
-    justify-center 
-    gap-2
+    grid
+    grid-cols-2
+    gap-4
+    text-center
 `;

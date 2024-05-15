@@ -1,3 +1,4 @@
+import Badge from '@/components/common/Badge';
 import * as S from '@/components/pages/Test/ResultDescription/styles';
 
 const ResultDescription = () => {
@@ -15,11 +16,26 @@ const ResultDescription = () => {
         즐기는 편입니다.
       </S.Content>
       <S.BadgeGroup>
-        {/* TODO: 뱃지 공통 컴포넌트 적용 */}
-        <div className="badge">#책임감</div>
-        <div className="badge">#꼰대</div>
-        <div className="badge">#호불호확실</div>
-        <div className="badge">#단계적계획</div>
+        <Badge
+          content="#책임감"
+          isClose={false}
+          classProp="p-4 w-full text-center"
+        />
+        <Badge
+          content="#꼰대"
+          isClose={false}
+          classProp="p-4 w-full text-center"
+        />
+        <Badge
+          content="#호불호확실"
+          isClose={false}
+          classProp="p-4 w-full text-center"
+        />
+        <Badge
+          content="#단계적계획"
+          isClose={false}
+          classProp="p-4 w-full text-center"
+        />
       </S.BadgeGroup>
     </S.ResultDescriptionContainer>
   );
