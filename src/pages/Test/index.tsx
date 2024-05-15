@@ -12,33 +12,25 @@ const Test = () => {
     <S.TestContainer>
       <TestTitle />
       <S.TestContent>
-        <Button
-          classProp={
-            'w-80 min-h-[120px] py-9 px-4 mb-5 cursor-pointer text-left rounded-2xl bg-white text-black active:translate-y-1 active:bg-purple-400 active:text-white ease-in duration-200 select-none relative animate-testComponent'
-          }
-        >
+        <Button classProp="w-full h-28 p-4 rounded-2xl bg-white text-black">
           남은 얘기는 만나서 해야징
         </Button>
-        <Button
-          classProp={
-            'w-80 min-h-[120px] py-9 px-4 mb-5 cursor-pointer text-left rounded-2xl bg-white text-black hover:bg-violet-400 hover:border-transparent hover:translate-y-1 hover:text-white active:translate-y-1 active:bg-purple-400 active:text-white ease-in duration-200 select-none relative animate-testComponent'
-          }
-        >
+        <Button classProp="w-full h-28 p-4 rounded-2xl bg-white text-black">
           통화가 끝났으니 이제 쉬어야지..
         </Button>
       </S.TestContent>
       <S.TestNavigation>
-        <Button>
-          <>
+        <Button classProp="bg-secondary text-white w-32">
+          <div className="flex justify-evenly w-full">
             <SlArrowLeft />
-            이전
-          </>
+            <span>이전</span>
+          </div>
         </Button>
-        <Button>
-          <>
-            다음
+        <Button classProp="bg-primary text-white w-32">
+          <div className="flex justify-evenly w-full">
+            <span>다음</span>
             <SlArrowRight />
-          </>
+          </div>
         </Button>
       </S.TestNavigation>
       <ProgressBar />

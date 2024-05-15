@@ -13,8 +13,10 @@ export const TestContainer = tw.div`
 export const TestContent = tw.div`
     flex
     flex-col
+    w-full
     justify-center
     items-center
+    gap-8
 `;
 
 export const TestNavigation = tw.div`

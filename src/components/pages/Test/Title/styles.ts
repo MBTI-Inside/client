@@ -1,11 +1,10 @@
 import tw from 'tailwind-styled-components';
 
 export const TestTitleContainer = tw.div`
-    h-1/3
-    select-none
+    flex
+    flex-col
+    gap-2
 `;
-
-//    animate-testComponent
 
 export const TestNumber = tw.h2`
     text-center
@@ -17,7 +16,6 @@ export const TestNumber = tw.h2`
 export const TestQuestion = tw.h3`
     text-center 
     text-xl 
-    font-semibold 
+    font-semibold
+    text-white
 `;
-
-// text-slate-50
