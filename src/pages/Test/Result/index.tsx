@@ -1,3 +1,5 @@
+import useRouter from '@/hooks/useRouter';
+
 import Button from '@/components/common/Button';
 import Character from '@/components/common/Character';
 import ResultDescription from '@/components/pages/Test/ResultDescription';
@@ -8,6 +10,7 @@ import ResultTypesRelations from '@/components/pages/Test/ResultTypesRelations';
 import * as S from '@/pages/Test/Result/styles';
 
 const TestResult = () => {
+  const { navigateTo } = useRouter();
   return (
     <S.TestResultContainer color={'bg-[#DDAADD]'}>
       <ResultHeader />
@@ -16,13 +19,22 @@ const TestResult = () => {
       <ResultStatistics />
       <ResultTypesRelations />
       <S.Buttons>
-        <Button classProp="w-full h-12 text-lg bg-black text-white border-none">
+        <Button
+          classProp="w-80 h-14 text-lg bg-[#FFA500] hover:bg-gray-700 text-white border-none"
+          onClick={() => navigateTo('/test')}
+        >
           다시하기
         </Button>
-        <Button classProp="w-full h-12 text-lg bg-black text-white border-none">
+        <Button
+          classProp="w-80 h-14 text-lg bg-[#4CAF50] hover:bg-gray-700 text-white border-none"
+          onClick={() => navigateTo('/stats')}
+        >
           통계 보러가기
         </Button>
-        <Button classProp="w-full h-12 text-lg bg-black text-white border-none">
+        <Button
+          classProp="w-80 h-14 text-lg bg-[#32BEBE] hover:bg-gray-700 text-[#333333] border-none"
+          onClick={() => navigateTo('/memo')}
+        >
           담벼락 보러가기
         </Button>
       </S.Buttons>

@@ -31,5 +31,5 @@ export const RelationsContainer = tw.div<RelationColorProps>`
     ${(bg) => (bg.isGood ? 'bg-pink-100' : 'bg-blue-100')} 
     rounded-lg 
     p-4 
-    w-11/12
+    w-full
 `;
