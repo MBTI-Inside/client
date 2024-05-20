@@ -4,7 +4,7 @@ import { useReducer } from 'react';
 import { useModalContext } from '@/hooks/useModal';
 
 import Button from '@/components/common/Button';
-import * as S from '@/components/common/MBTITypes/index.styles';
+import * as S from '@/components/common/MBTITypes/styles';
 import Toggle from '@/components/common/Toggle';
 
 interface ToggleState {
@@ -66,7 +66,7 @@ const MBTITypes = () => {
         );
       })}
       <Button
-        classProp="w-80 h-14 mt-3 text-lg bg-blue-600 text-white hover:bg-blue-700"
+        classProp="w-80 h-14 text-lg bg-secondary text-white"
         onClick={() => doSomething()}
       >
         확인
