@@ -1,4 +1,4 @@
-import * as S from '@/components/pages/Admin/User/UserCard/styles';
+import * as S from '@/components/pages/User/UserCard/styles';
 
 const UserCard = () => {
   return (

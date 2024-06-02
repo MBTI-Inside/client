@@ -1,11 +1,8 @@
-import { GrAdobeCreativeCloud } from 'react-icons/gr';
-import { IoIosArrowBack } from 'react-icons/io';
-
 import Pagination from '@/components/common/Pagination';
-import UserCard from '@/components/pages/Admin/User/UserCard';
-import UserHeader from '@/components/pages/Admin/User/UserHeader';
+import UserCard from '@/components/pages/User/UserCard';
+import UserHeader from '@/components/pages/User/UserHeader';
 
-import * as S from '@/pages/Admin/User/styles';
+import * as S from '@/pages/User/styles';
 
 const UserList = () => {
   return (

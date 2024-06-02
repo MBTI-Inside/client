@@ -1,7 +1,7 @@
 import { GrAdobeCreativeCloud } from 'react-icons/gr';
 import { IoIosArrowBack } from 'react-icons/io';
 
-import * as S from '@/components/pages/Admin/User/UserHeader/styles';
+import * as S from '@/components/pages/User/UserHeader/styles';
 
 const UserHeader = () => {
   return (

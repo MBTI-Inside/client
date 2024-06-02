@@ -1,7 +1,7 @@
 import { useRef, useState } from 'react';
 
 import Button from '@/components/common/Button';
-import * as S from '@/components/pages/Admin/Question/QuestionNote/styles';
+import * as S from '@/components/pages/Question/QuestionNote/styles';
 
 const QuestionNote = (params: any) => {
   const { id, question, answerTop, answerBottom } = params;
