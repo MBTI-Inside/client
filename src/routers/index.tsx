@@ -9,7 +9,7 @@ const MemoView = lazy(() => import('@/pages/Memo/View'));
 const Stats = lazy(() => import('@/pages/Stats'));
 const Admin = lazy(() => import('@/pages/Admin'));
 const QuestionView = lazy(() => import('@/pages/Question/View'));
-const AdminUserList = lazy(() => import('@/pages/User'));
+const UserList = lazy(() => import('@/pages/User'));
 const MyPage = lazy(() => import('@/pages/MyPage'));
 const MyTest = lazy(() => import('@/pages/MyPage/TestList'));
 const MyMemo = lazy(() => import('@/pages/MyPage/PostList'));
@@ -54,8 +54,8 @@ const routePaths = [
     element: <QuestionView />
   },
   {
-    path: '/admin/user-list',
-    element: <AdminUserList />
+    path: '/user-list',
+    element: <UserList />
   },
   {
     path: '/mypage',
