@@ -1,9 +1,9 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import QuestionNote from '@/components/pages/Admin/Question/QuestionNote';
+import QuestionNote from '@/components/pages/Question/QuestionNote';
 
 const meta = {
-  title: 'components/pages/Admin/Question/QuestionNote',
+  title: 'components/pages/Question/QuestionNote',
   component: QuestionNote,
   parameters: {
     layout: 'centered'

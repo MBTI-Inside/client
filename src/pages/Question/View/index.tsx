@@ -1,7 +1,7 @@
-import QuestionViewCard from '@/components/pages/Admin/Question/QuestionViewCard';
-import QuestionViewHeader from '@/components/pages/Admin/Question/QuestionViewHeader';
+import QuestionViewCard from '@/components/pages/Question/QuestionViewCard';
+import QuestionViewHeader from '@/components/pages/Question/QuestionViewHeader';
 
-import * as S from '@/pages/Admin/Question/View/styles';
+import * as S from '@/pages/Question/View/styles';
 
 const QuestionView = () => {
   return (

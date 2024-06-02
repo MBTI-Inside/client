@@ -21,12 +21,22 @@ export const Chip = tw.span<ChipProps>`
 export const ColorChipContainer = tw.div`
   flex
   flex-col
+  justify-between
+  h-full
+  bg-white
+  p-4
+  rounded-xl
+`;
+
+export const ChipSetGroup = tw.section`
+flex
+flex-col
+gap-4
 `;
 
 export const ChipSet = tw.div`
   flex 
   items-center 
-  mt-5
 `;
 
 export const ChipLabel = tw.label`

@@ -5,8 +5,8 @@ import { useModalContext } from '@/hooks/useModal';
 import Badge from '@/components/common/Badge';
 import Button from '@/components/common/Button';
 import Search from '@/components/common/Search';
-import * as S from '@/components/pages/Admin/Question/QuestionHeader/styles';
-import QuestionNote from '@/components/pages/Admin/Question/QuestionNote';
+import * as S from '@/components/pages/Question/QuestionHeader/styles';
+import QuestionNote from '@/components/pages/Question/QuestionNote';
 
 const QuestionHeader = () => {
   const { openModal } = useModalContext();

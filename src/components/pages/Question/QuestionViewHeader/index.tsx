@@ -1,7 +1,7 @@
 import { CiMenuKebab } from 'react-icons/ci';
 import { IoIosArrowBack } from 'react-icons/io';
 
-import * as S from '@/components/pages/Admin/Question/QuestionViewHeader/styles';
+import * as S from '@/components/pages/Question/QuestionViewHeader/styles';
 
 const QuestionViewHeader = () => {
   return (

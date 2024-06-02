@@ -1,4 +1,4 @@
-import * as S from '@/components/pages/Admin/Question/QuestionViewCard/styles';
+import * as S from '@/components/pages/Question/QuestionViewCard/styles';
 
 const QuestionViewCard = () => {
   return (

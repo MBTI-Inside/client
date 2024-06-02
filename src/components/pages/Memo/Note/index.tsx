@@ -1,13 +1,15 @@
 import { useRef, useState } from 'react';
 import { FaExchangeAlt } from 'react-icons/fa';
 
-import Badge from '@/components/common/Badge';
+import { useModalContext } from '@/hooks/useModal';
+
 import Button from '@/components/common/Button';
+import ColorChip from '@/components/common/ColorChip';
 import * as S from '@/components/pages/Memo/Note/styles';
 
 const Note = (params: any) => {
   const { id, title, content } = params;
-  //   const { openModal } = useModalContext();
+  const { openModal } = useModalContext();
   // openModal(<MBTITypes />, null, 'MBTI 선택')
   const titleRef = useRef(title);
   const contentRef = useRef(content);
@@ -39,7 +41,12 @@ const Note = (params: any) => {
         <span>{'ESTJ'}</span>
         <FaExchangeAlt />
       </Button>
-      <Button classProp="w-full h-14 text-lg text-white bg-primary">
+      <Button
+        classProp="w-full h-14 text-lg text-white bg-primary"
+        onClick={() => {
+          openModal(<ColorChip />, null, '배경색상 선택');
+        }}
+      >
         <span>배경 색상</span>
         <S.MemoColor bg="bg-[#FF9D42]" />
       </Button>
