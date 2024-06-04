@@ -1,21 +1,5 @@
 type MBTIElementOption = 'E' | 'I' | 'N' | 'S' | 'T' | 'F' | 'J' | 'P';
-type MBTITypeOption =
-  | 'INTJ'
-  | 'INTP'
-  | 'ENTJ'
-  | 'ENTP'
-  | 'INFJ'
-  | 'INFP'
-  | 'ENFJ'
-  | 'ENFP'
-  | 'ISTJ'
-  | 'ISFJ'
-  | 'ESTJ'
-  | 'ESFJ'
-  | 'ISTP'
-  | 'ISFP'
-  | 'ESTP'
-  | 'ESFP';
+type MBTITypesOption = 'Energy' | 'Awareness' | 'Judgement' | 'Life';
 
 export const MBTI_ELEMENT_OPTIONS: MBTIElementOption[] = [
   'E',
@@ -27,21 +11,10 @@ export const MBTI_ELEMENT_OPTIONS: MBTIElementOption[] = [
   'J',
   'P'
 ];
-export const MBTI_TYPE_OPTIONS: MBTITypeOption[] = [
-  'INTJ',
-  'INTP',
-  'ENTJ',
-  'ENTP',
-  'INFJ',
-  'INFP',
-  'ENFJ',
-  'ENFP',
-  'ISTJ',
-  'ISFJ',
-  'ESTJ',
-  'ESFJ',
-  'ISTP',
-  'ISFP',
-  'ESTP',
-  'ESFP'
+
+export const MBTI_TYPES_OPTIONS: MBTITypesOption[] = [
+  'Energy',
+  'Awareness',
+  'Judgement',
+  'Life'
 ];
