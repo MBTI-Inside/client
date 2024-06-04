@@ -17,7 +17,7 @@ const QuestionHeader = () => {
         <S.ButtonGroup>
           <Button
             classProp="bg-success"
-            onClick={() => openModal(<Search />, null, '검색')}
+            onClick={() => openModal(<Search isType={true} />, null, '검색')}
           >
             <FaSearch />
           </Button>
