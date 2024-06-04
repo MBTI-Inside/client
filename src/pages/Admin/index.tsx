@@ -1,30 +1,34 @@
-import { useNavigate } from 'react-router-dom';
+import useRouter from '@/hooks/useRouter';
 
 import Button from '@/components/common/Button';
 import Character from '@/components/common/Character';
 
+import * as S from '@/pages/Admin/styles';
+
 const Admin = () => {
-  const nav = useNavigate();
+  const { navigateTo } = useRouter();
 
   return (
-    <div className="flex flex-col my-5">
+    <S.AdminContainer>
       <Character bgcolor="#D5BA38" gcolor="#7FBB88" />
-      <h3
-        className="font-bold
-            text-6xl
-            text-center
-            pb-[60px]
-            text-[#000]
-            bg-[#D5BA38]"
-      >
-        Admin 😎
-      </h3>
-      <Button classProp={'text-xl'} onClick={() => nav('/admin/question')}>
-        테스트 관리
-      </Button>
-      <Button classProp={'text-xl'}>게시글 관리</Button>
-      <Button classProp={'text-xl'}>사용자 관리</Button>
-    </div>
+      <S.ContentSection>
+        <S.Title>Admin 😎</S.Title>
+        <S.ButtonGroup>
+          <Button
+            classProp="w-80 h-14 bg-[#4A90E2] rounded-full shadow-lg border-none text-white text-lg"
+            onClick={() => navigateTo('/admin/question')}
+          >
+            테스트 관리
+          </Button>
+          <Button
+            classProp="w-80 h-14 bg-[#34A853] rounded-full shadow-lg border-none text-white text-lg"
+            onClick={() => navigateTo('/admin/user-list')}
+          >
+            사용자 관리
+          </Button>
+        </S.ButtonGroup>
+      </S.ContentSection>
+    </S.AdminContainer>
   );
 };
 

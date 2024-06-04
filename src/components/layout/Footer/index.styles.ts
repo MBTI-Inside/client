@@ -23,21 +23,17 @@ export const ShareIcon = tw(BsShare)`
 `;
 
 export const FooterTextArea = tw.aside`
-flex
-flex-col
-item-center
+  flex
+  flex-col
+  items-center
 `;
 
 export const FooterNav = tw.nav`
-flex
-flex-row
-`;
-
-export const FooterLink = tw.a`
-mr-3
-cursor-pointer
+  flex
+  gap-4
 `;
 
 export const Copyright = tw.p`
-text-lg
-text-black`;
+  text-lg
+  text-black
+`;

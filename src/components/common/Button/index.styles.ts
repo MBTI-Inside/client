@@ -4,6 +4,6 @@ export const CommonButton = tw.button`
     btn
     min-h-0
     rounded-full
-    border-inherit
+    border-none
     font-bold
 `;

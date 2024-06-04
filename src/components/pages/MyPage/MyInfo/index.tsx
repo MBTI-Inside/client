@@ -1,19 +1,34 @@
 import { FaPencilAlt } from 'react-icons/fa';
 
+import { useModalContext } from '@/hooks/useModal';
+
+import * as S from '@/components/pages/MyPage/MyInfo/styles';
+
+import Nickname from '../Nickname';
+
 const MyInfo = () => {
+  const { openModal } = useModalContext();
   return (
-    <div className="flex flex-row bg-white items-center justify-center w-full">
-      <div>photo</div>
-      <div className="flex flex-col">
-        <div>
-          <span>
-            언정차님
-            <FaPencilAlt />
-          </span>
+    <S.MyInfoContainer>
+      <div className="avatar">
+        <div className="w-20 rounded">
+          <img src="https://avatars.githubusercontent.com/u/63568239?v=4" />
         </div>
-        <div>MBTI: ESTJ</div>
       </div>
-    </div>
+      <S.MyInfoAreaWrapper>
+        <S.MyInfoArea>
+          <div className="flex gap-1">
+            <span className="font-bold">언정차</span>
+            <span>님</span>
+          </div>
+          <FaPencilAlt
+            className="text-lg"
+            onClick={() => openModal(<Nickname />, null, '닉네임 변경')}
+          />
+        </S.MyInfoArea>
+        <div>MBTI : ESTJ</div>
+      </S.MyInfoAreaWrapper>
+    </S.MyInfoContainer>
   );
 };
 

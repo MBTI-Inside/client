@@ -7,7 +7,7 @@ import {
   MenuIcon
 } from '@/components/layout/Header/index.styles';
 
-import MainLogoSvg from '@/assets/image/mainlogo.svg?react';
+import MainLogoSvg from '@/assets/image/mainlogo.svg';
 
 import SideBar from './index';
 

@@ -40,16 +40,16 @@ const Footer = () => {
         <S.Copyright>All right reserved</S.Copyright>
       </S.FooterTextArea>
       <S.FooterNav>
-        <S.FooterLink
+        <a
           href="https://github.com/rebi13/MBTI-Inside"
           target="_blank"
           rel="MBTI-Inside noreferrer"
         >
           <S.GitHubIcon />
-        </S.FooterLink>
-        <S.FooterLink onClick={handleShareClick}>
+        </a>
+        <a onClick={handleShareClick}>
           <S.ShareIcon />
-        </S.FooterLink>
+        </a>
       </S.FooterNav>
     </S.FooterContainer>
   );

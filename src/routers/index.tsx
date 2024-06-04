@@ -7,11 +7,12 @@ const Test = lazy(() => import('@/pages/Test'));
 const TestResult = lazy(() => import('@/pages/Test/Result'));
 const MemoView = lazy(() => import('@/pages/Memo/View'));
 const Stats = lazy(() => import('@/pages/Stats'));
-const StatsMBTI = lazy(() => import('@/pages/Stats/View'));
 const Admin = lazy(() => import('@/pages/Admin'));
-const AdminQuestion = lazy(() => import('@/pages/Admin/Question'));
-const AdminQuestionView = lazy(() => import('@/pages/Admin/Question/View'));
+const QuestionView = lazy(() => import('@/pages/Question/View'));
+const UserList = lazy(() => import('@/pages/User'));
 const MyPage = lazy(() => import('@/pages/MyPage'));
+const MyTest = lazy(() => import('@/pages/MyPage/TestList'));
+const MyMemo = lazy(() => import('@/pages/MyPage/PostList'));
 const Question = lazy(() => import('@/pages/Question'));
 const NotFound = lazy(() => import('@/pages/NotFound'));
 
@@ -45,24 +46,28 @@ const routePaths = [
     element: <Stats />
   },
   {
-    path: '/stats/:mbti',
-    element: <StatsMBTI />
-  },
-  {
     path: '/admin',
     element: <Admin />
   },
   {
-    path: '/admin/question',
-    element: <AdminQuestion />
+    path: '/question/:id',
+    element: <QuestionView />
   },
   {
-    path: '/admin/question/:id',
-    element: <AdminQuestionView />
+    path: '/user-list',
+    element: <UserList />
   },
   {
     path: '/mypage',
     element: <MyPage />
+  },
+  {
+    path: '/mypage/test-list',
+    element: <MyTest />
+  },
+  {
+    path: '/mypage/memo-list',
+    element: <MyMemo />
   },
   {
     path: '/question',

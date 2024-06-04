@@ -1,12 +1,15 @@
 import { useRef, useState } from 'react';
 import { FaExchangeAlt } from 'react-icons/fa';
 
+import { useModalContext } from '@/hooks/useModal';
+
 import Button from '@/components/common/Button';
-import * as S from '@/components/pages/Memo/Note/index.styles';
+import ColorChip from '@/components/common/ColorChip';
+import * as S from '@/components/pages/Memo/Note/styles';
 
 const Note = (params: any) => {
   const { id, title, content } = params;
-  //   const { openModal } = useModalContext();
+  const { openModal } = useModalContext();
   // openModal(<MBTITypes />, null, 'MBTI 선택')
   const titleRef = useRef(title);
   const contentRef = useRef(content);
@@ -18,34 +21,39 @@ const Note = (params: any) => {
   });
 
   return (
-    <S.NoteContainer>
-      <S.NoteHeader>
-        <S.Title>{'ESTJ'}</S.Title>
-        <Button onClick={() => {}}>
-          <FaExchangeAlt />
-        </Button>
-      </S.NoteHeader>
-      <form className="flex-1">
-        <S.InputTitle
-          type="text"
-          placeholder="제목"
-          defaultValue={titleRef.current}
-          ref={titleRef}
-        />
-        <S.InputContent
-          placeholder="내용"
-          defaultValue={contentRef.current}
-          ref={contentRef}
-        />
-        <Button classProp={'w-full h-14 text-lg text-white mb-6 bg-inherit'}>
-          <span>배경 색상</span>
-          <S.MemoColor bg="bg-[#FF9D42]"></S.MemoColor>
-        </Button>
-        <Button classProp={'w-full h-14 text-lg text-white bg-inherit'}>
-          작성 완료
-        </Button>
-      </form>
-    </S.NoteContainer>
+    <S.NoteFormContainer>
+      <S.InputTitle
+        type="text"
+        placeholder="제목을 입력하세요."
+        defaultValue={titleRef.current}
+        ref={titleRef}
+      />
+      {/* TODO: 글자수 입력 제한 */}
+      <S.InputContent
+        placeholder="내용을 입력하세요."
+        defaultValue={contentRef.current}
+        ref={contentRef}
+      />
+      <Button
+        classProp="w-full h-14 text-lg text-white bg-accent"
+        onClick={() => {}}
+      >
+        <span>{'ESTJ'}</span>
+        <FaExchangeAlt />
+      </Button>
+      <Button
+        classProp="w-full h-14 text-lg text-white bg-primary"
+        onClick={() => {
+          openModal(<ColorChip />, null, '배경색상 선택');
+        }}
+      >
+        <span>배경 색상</span>
+        <S.MemoColor bg="bg-[#FF9D42]" />
+      </Button>
+      <Button classProp="w-full h-14 text-lg text-white bg-secondary">
+        작성 완료
+      </Button>
+    </S.NoteFormContainer>
   );
 };
 

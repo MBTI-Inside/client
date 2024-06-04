@@ -14,28 +14,32 @@ const ColorChip = () => {
 
   return (
     <S.ColorChipContainer>
-      {bgColors.map(({ colorId, bgColor, name }) => (
-        <S.ChipSet key={colorId}>
-          <input
-            type="radio"
-            id={colorId}
-            value={colorId}
-            checked={color === colorId}
-            name="colors"
-            className="hidden"
-            onChange={(e) => {
-              setColor(e.target.value);
-            }}
-          />
-          <S.ChipLabel htmlFor={colorId}>
-            <S.Chip bg={bgColor} />
-            <S.ChipName isSelectedColor={color === colorId}>{name}</S.ChipName>
-            {color === colorId && <FaCheck />}
-          </S.ChipLabel>
-        </S.ChipSet>
-      ))}
+      <S.ChipSetGroup>
+        {bgColors.map(({ colorId, bgColor, name }) => (
+          <S.ChipSet key={colorId}>
+            <input
+              type="radio"
+              id={colorId}
+              value={colorId}
+              checked={color === colorId}
+              name="colors"
+              className="hidden"
+              onChange={(e) => {
+                setColor(e.target.value);
+              }}
+            />
+            <S.ChipLabel htmlFor={colorId}>
+              <S.Chip bg={bgColor} />
+              <S.ChipName isSelectedColor={color === colorId}>
+                {name}
+              </S.ChipName>
+              {color === colorId && <FaCheck />}
+            </S.ChipLabel>
+          </S.ChipSet>
+        ))}
+      </S.ChipSetGroup>
       <Button
-        classProp="w-80 h-14 mt-3 text-lg bg-blue-600 text-white hover:bg-blue-700"
+        classProp="w-full h-14 text-lg bg-blue-600 text-white hover:bg-blue-700"
         onClick={() => doSomething()}
       >
         확인
