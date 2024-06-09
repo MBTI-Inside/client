@@ -16,13 +16,13 @@ const Admin = () => {
         <S.ButtonGroup>
           <Button
             classProp="w-80 h-14 bg-[#4A90E2] rounded-full shadow-lg border-none text-white text-lg"
-            onClick={() => navigateTo('/admin/question')}
+            onClick={() => navigateTo('/question')}
           >
             테스트 관리
           </Button>
           <Button
             classProp="w-80 h-14 bg-[#34A853] rounded-full shadow-lg border-none text-white text-lg"
-            onClick={() => navigateTo('/admin/user-list')}
+            onClick={() => navigateTo('/user-list')}
           >
             사용자 관리
           </Button>
