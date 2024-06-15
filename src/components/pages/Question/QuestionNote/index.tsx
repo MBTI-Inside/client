@@ -1,4 +1,7 @@
+import { Question } from '@/@types/Question';
+import axiosRequest from '@/api';
 import { MBTI_TYPES_OPTIONS } from '@/constants';
+import axios from 'axios';
 import { useEffect, useRef, useState } from 'react';
 
 import Button from '@/components/common/Button';
@@ -8,8 +11,6 @@ import { MBTI_OPTIONS_DATA } from '@/constants/MBTIOptions';
 
 const QuestionNote = (params: any) => {
   const { id, question, answerTop, answerBottom } = params;
-  const text = '123asdf';
-  console.log(question, answerTop, answerBottom);
 
   const [mbtiTypesOption, setMBTITypesOption] =
     useState<keyof typeof MBTI_OPTIONS_DATA>('Energy');
@@ -27,11 +28,48 @@ const QuestionNote = (params: any) => {
     setMBTITypes(MBTI_OPTIONS_DATA[mbtiTypesOption]);
   }, [mbtiTypesOption]);
 
-  const saveQuestion = () => {
-    console.log('제목 : ' + questionRef.current?.value);
-    console.log('답변1 : ' + answerTopRef.current?.value);
-    console.log('답변2 : ' + answerBottomRef.current?.value);
-    console.log('비중도 : ' + rangeValue);
+  const saveQuestion = async () => {
+    // TODO: 데이터 검증 로직 더 효율적으로 바꾸는 게 좋을듯
+    if (!questionRef.current?.value) {
+      return;
+    }
+
+    if (!answerTopRef.current?.value) {
+      return;
+    }
+
+    if (!answerBottomRef.current?.value) {
+      return;
+    }
+
+    const questionData: Question = {
+      subject: questionRef.current.value,
+      answer: [
+        {
+          type: mbtiTypes[0],
+          content: answerTopRef.current.value,
+          proportion: rangeValue
+        },
+        {
+          type: mbtiTypes[1],
+          content: answerBottomRef.current.value,
+          proportion: 100 - rangeValue
+        }
+      ],
+      mbtiType: mbtiTypesOption
+    };
+
+    const a = await axios.post(
+      `${import.meta.env.VITE_API_URL}/survey/questions`,
+      questionData
+    );
+    console.log(a);
+    const res = await axiosRequest.requestAxios<Question>(
+      'post',
+      '/survey/questions',
+      questionData
+    );
+    console.log(res);
   };
 
   return (
