@@ -32,7 +32,7 @@ const QuestionView = () => {
 
   return (
     <S.QuestionViewContainer>
-      <QuestionViewHeader />
+      <QuestionViewHeader id={id} />
       <QuestionViewCard question={question} />
     </S.QuestionViewContainer>
   );
