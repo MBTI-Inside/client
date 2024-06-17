@@ -1,13 +1,21 @@
 import { CiMenuKebab } from 'react-icons/ci';
 import { IoIosArrowBack } from 'react-icons/io';
 
+import useRouter from '@/hooks/useRouter';
+
 import * as S from '@/components/pages/Question/QuestionViewHeader/styles';
 
 const QuestionViewHeader = () => {
+  const { goBack } = useRouter();
+
   return (
     <S.QuestionViewHeaderContainer>
       <div className="pl-4 text-xl">
-        <IoIosArrowBack onClick={() => {}} />
+        <IoIosArrowBack
+          onClick={() => {
+            goBack();
+          }}
+        />
       </div>
       <span className="font-bold text-xl">Question</span>
       <S.DropDowns>
