@@ -1,6 +1,6 @@
-import { Question } from '@/@types/Question';
+import { Question } from '@/@types';
 import axiosRequest from '@/api';
-import axios from 'axios';
+import { useEffect, useState } from 'react';
 
 import Pagination from '@/components/common/Pagination';
 import QuestionCard from '@/components/pages/Question/QuestionCard';
@@ -9,72 +9,32 @@ import QuestionHeader from '@/components/pages/Question/QuestionHeader';
 import * as S from '@/pages/Question/styles';
 
 const QuestionList = () => {
-  const getQ = async () => {
-    try {
-      const res = await axios.get(
-        `${
-          import.meta.env.VITE_API_URL
-        }/survey/questions/66446ecf1f4e58c6cbd95de7`
-      );
-      console.log(res);
-    } catch (e) {
-      console.log(e);
-    }
-  };
+  const [questions, setQuestions] = useState<Question[]>([]);
+
   const getQuestionList = async () => {
     try {
-      const response = await axiosRequest.requestAxios<any>(
+      const response = await axiosRequest.requestAxios<Question[]>(
         'get',
-        '/survey/questions/66446ecf1f4e58c6cbd95de7'
+        '/survey/questions?skip=0&limit=100' // sortType=desc&sortField=id
       );
-      console.log(response);
+      setQuestions(response);
     } catch (e) {
       console.log(e);
     }
   };
 
-  const del = async () => {
-    try {
-      const res = await axios.delete(
-        `${
-          import.meta.env.VITE_API_URL
-        }/survey/questions/66446ecf1f4e58c6cbd95de7`
-      );
-      console.log(res);
-    } catch (e) {
-      console.log(e);
-    }
-  };
-
-  const postTest = async () => {
-    try {
-      const res = await axios.post(
-        `${import.meta.env.VITE_API_URL}/survey/compatibilities`,
-        {
-          type: 'good',
-          mbti: 'ESTJ',
-          targetMbti: 'INFP',
-          description: 'CCCC'
-        }
-      );
-      console.log(res);
-    } catch (e) {
-      console.log(e);
-    }
-  };
-  // postTest();
-  // del();
-  // getQ();
-  // getQuestionList();
+  // TODO: 공통 tanstack query 적용
+  // TODO: 무한스크롤
+  useEffect(() => {
+    getQuestionList();
+  }, []);
 
   return (
     <S.QuestionContainer>
       <QuestionHeader />
-      <QuestionCard />
-      <QuestionCard />
-      <QuestionCard />
-      <QuestionCard />
-      <QuestionCard />
+      {questions.map((question) => {
+        return <QuestionCard key={question.createdAt} question={question} />;
+      })}
       <Pagination />
     </S.QuestionContainer>
   );

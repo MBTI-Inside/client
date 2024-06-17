@@ -1,25 +1,39 @@
+import { Question } from '@/@types';
+
 import useRouter from '@/hooks/useRouter';
 
 import Badge from '@/components/common/Badge';
 import * as S from '@/components/pages/Question/QuestionCard/styles';
 
-const QuestionCard = () => {
+interface QuestionProps {
+  question: Question;
+}
+
+const QuestionCard = ({ question }: QuestionProps) => {
   const { navigateTo } = useRouter();
 
+  // 구조 분해
+  const { id, subject, answer, mbtiType, createdAt } = question;
+
+  // 왼쪽, 오른쪽 응답 데이터
+  const [left, right] = answer;
+
   return (
-    <S.QuestionCardContainer onClick={() => navigateTo('/question/3')}>
+    <S.QuestionCardContainer onClick={() => navigateTo(`/question/${id}`)}>
       <S.QuestionTitle>
-        <Badge content="energy" isClose={false} />
-        <div className="line-clamp-2">
-          바쁜 회사 생활을 보낸 당신. 황금 같은 주말을 어떻게 보내려고 할까?
-        </div>
+        <Badge content={mbtiType} isClose={false} />
+        <div className="line-clamp-2">{subject}</div>
       </S.QuestionTitle>
       <S.QuestionDataGroup>
-        <div className="badge">E</div>
-        <span className="w-1/6 text-left">72%</span>
-        <progress className="progress bg-slate-400" value={72} max={100} />
-        <span className="w-1/6 text-right">28%</span>
-        <div className="badge">I</div>
+        <div className="badge">{left.type}</div>
+        <span className="w-1/6 text-left">{left.proportion}%</span>
+        <progress
+          className="progress bg-slate-400"
+          value={left.proportion}
+          max={100}
+        />
+        <span className="w-1/6 text-right">{right.proportion}%</span>
+        <div className="badge">{right.type}</div>
       </S.QuestionDataGroup>
     </S.QuestionCardContainer>
   );
