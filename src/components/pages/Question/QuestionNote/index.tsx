@@ -13,7 +13,7 @@ const QuestionNote = (params: any) => {
   const { id, question, answerTop, answerBottom } = params;
 
   const [mbtiTypesOption, setMBTITypesOption] =
-    useState<keyof typeof MBTI_OPTIONS_DATA>('Energy');
+    useState<keyof typeof MBTI_OPTIONS_DATA>('energy');
 
   const [mbtiTypes, setMBTITypes] = useState<string[]>(
     MBTI_OPTIONS_DATA[mbtiTypesOption]
@@ -42,7 +42,7 @@ const QuestionNote = (params: any) => {
       return;
     }
 
-    const questionData: Question = {
+    const questionData = {
       subject: questionRef.current.value,
       answer: [
         {
@@ -59,17 +59,11 @@ const QuestionNote = (params: any) => {
       mbtiType: mbtiTypesOption
     };
 
-    const a = await axios.post(
-      `${import.meta.env.VITE_API_URL}/survey/questions`,
-      questionData
-    );
-    console.log(a);
     const res = await axiosRequest.requestAxios<Question>(
       'post',
       '/survey/questions',
       questionData
     );
-    console.log(res);
   };
 
   return (
