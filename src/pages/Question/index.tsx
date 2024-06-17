@@ -35,7 +35,8 @@ const QuestionList = () => {
       {questions.map((question) => {
         return <QuestionCard key={question.createdAt} question={question} />;
       })}
-      <Pagination />
+      {/* TODO: Pagination 제거, 무한스크롤 적용 */}
+      {/* <Pagination /> */}
     </S.QuestionContainer>
   );
 };
