@@ -1,13 +1,9 @@
-import { Question } from '@/@types';
-
 import useRouter from '@/hooks/useRouter';
 
 import Badge from '@/components/common/Badge';
 import * as S from '@/components/pages/Question/QuestionCard/styles';
 
-interface QuestionProps {
-  question: Question;
-}
+import { QuestionProps } from '@/pages/Question';
 
 const QuestionCard = ({ question }: QuestionProps) => {
   const { navigateTo } = useRouter();

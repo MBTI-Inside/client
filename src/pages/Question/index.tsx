@@ -2,11 +2,14 @@ import { Question } from '@/@types';
 import axiosRequest from '@/api';
 import { useEffect, useState } from 'react';
 
-import Pagination from '@/components/common/Pagination';
 import QuestionCard from '@/components/pages/Question/QuestionCard';
 import QuestionHeader from '@/components/pages/Question/QuestionHeader';
 
 import * as S from '@/pages/Question/styles';
+
+export interface QuestionProps {
+  question: Question;
+}
 
 const QuestionList = () => {
   const [questions, setQuestions] = useState<Question[]>([]);
