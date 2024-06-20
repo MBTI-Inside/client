@@ -37,7 +37,7 @@ const QuestionViewHeader = ({ id }: QuestionViewHeaderProps) => {
           <li className="items-center">
             <a
               onClick={() => {
-                openModal(<QuestionNote />, null, '문항 수정');
+                openModal(<QuestionNote id={id} />, null, '문항 수정');
               }}
             >
               수정
