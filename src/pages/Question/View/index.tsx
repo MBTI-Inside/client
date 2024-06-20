@@ -1,13 +1,39 @@
+import { Question } from '@/@types';
+import axiosRequest from '@/api';
+import { useEffect, useState } from 'react';
+
+import useRouter from '@/hooks/useRouter';
+
 import QuestionViewCard from '@/components/pages/Question/QuestionViewCard';
 import QuestionViewHeader from '@/components/pages/Question/QuestionViewHeader';
 
 import * as S from '@/pages/Question/View/styles';
 
 const QuestionView = () => {
+  const { params } = useRouter();
+  const { id } = params as { id: string };
+  const [question, setQuestion] = useState<Question>();
+
+  const getQuestion = async (id: string) => {
+    try {
+      const response = await axiosRequest.requestAxios<Question>(
+        'get',
+        `/survey/questions/${id}` // sortType=desc&sortField=id
+      );
+      setQuestion(response);
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
+  useEffect(() => {
+    getQuestion(id);
+  }, []);
+
   return (
     <S.QuestionViewContainer>
-      <QuestionViewHeader />
-      <QuestionViewCard />
+      <QuestionViewHeader id={id} />
+      <QuestionViewCard question={question} />
     </S.QuestionViewContainer>
   );
 };
