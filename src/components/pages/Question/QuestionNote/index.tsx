@@ -86,7 +86,7 @@ const QuestionNote = ({ id }: QuestionNoteProps) => {
     const res = await axiosRequest.requestAxios<Question>(
       'put',
       `/survey/questions/${id}`,
-      questionData
+      { data: questionData }
     );
     console.log(res);
   };
