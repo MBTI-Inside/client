@@ -13,8 +13,6 @@ import Header from '@/components/layout/Header';
 
 // TODO: ErrorFallback 컴포넌트 구현
 const ErrorFallback = ({ error, resetErrorBoundary }: FallbackProps) => {
-  console.log(error);
-  console.log(resetErrorBoundary);
   return (
     <div className=" flex flex-col items-center justify-center px-3 pt-52">
       <section>{error.message}</section>
