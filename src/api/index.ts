@@ -22,14 +22,14 @@ interface AxiosRequest {
   requestAxios: <T>(
     method: string,
     url: string,
-    data?: Pick<AxiosRequestConfig, 'data'>,
+    data?: AxiosRequestConfig['data'],
     headers?: AxiosRequestConfig['headers']
   ) => Promise<T>;
 }
 
 const axiosRequest: AxiosRequest = {
   /**
-   * 작성자명   : 원종석
+   * 작성자명   : 000
    * 작성일자   : 2023.08.02.(수)
    * 작성내용   : axios로 요청 보내기
    * 수정일자   : 2023.11.06 (월)
@@ -51,6 +51,7 @@ const axiosRequest: AxiosRequest = {
     if (!allowMethod.includes(method.toLowerCase()))
       throw new Error('허용되지 않은 호출 method입니다.');
     try {
+      console.log(data);
       const response = await myAxiosApi({
         method,
         url: `${myAxiosApi.defaults.baseURL}${url}`,

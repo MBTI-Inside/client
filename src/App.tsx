@@ -14,11 +14,11 @@ import Header from '@/components/layout/Header';
 // TODO: ErrorFallback 컴포넌트 구현
 const ErrorFallback = ({ error, resetErrorBoundary }: FallbackProps) => {
   return (
-    <div className=" flex flex-col items-center justify-center px-3 pt-52">
-      <section>{error.message}</section>
+    <div className="flex flex-col items-center justify-center px-3 pt-52">
+      <section className="text-sky-400">{error.message}</section>
       <Button onClick={() => resetErrorBoundary()}>reset</Button>
       <section className="mt-4">
-        <strong className="text-sky-400">잠시</strong>기다려주세요
+        <strong className="text-sky-400">잠시 기다려주세요</strong>
       </section>
     </div>
   );
