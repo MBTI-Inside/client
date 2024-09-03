@@ -1,21 +1,17 @@
 import axiosRequest from '@/api';
 import {
+  QueryFunction,
   UseQueryOptions,
   UseQueryResult,
   useQuery
 } from '@tanstack/react-query';
 
-interface QueryData<T> {
-  data: T | undefined;
-  isLoading: boolean;
-  isError: boolean;
-  error: Error | null; // Todo: error-boundary
-}
-
-interface InfoProps {
-  method: 'get';
+interface InfoProps<T> {
+  method: string;
   url: string;
-  enabled: boolean;
+  enabled?: boolean;
+  queryFn?: QueryFunction<T>;
+  options?: Omit<UseQueryOptions<T, Error>, 'queryKey' | 'queryFn'>;
 }
 
 /**
@@ -28,21 +24,26 @@ interface InfoProps {
  * @param info 호출 method와 url 정보를 담은 객체 데이터
  * @returns
  */
-const useCustomQuery = <T>(key: string[], info: InfoProps): QueryData<T> => {
-  const { method, url, enabled = true } = info;
-
-  const queryFn = () => axiosRequest.requestAxios<T>(method, url);
+const useCustomQuery = <T>(
+  key: string[],
+  info: InfoProps<T>
+): UseQueryResult<T, Error> => {
+  const {
+    method,
+    url,
+    enabled = true,
+    queryFn = () => axiosRequest.requestAxios<T>(method, url),
+    options = {}
+  } = info;
 
   const queryOptions: UseQueryOptions<T, Error> = {
     queryKey: key,
     queryFn,
-    enabled
+    enabled,
+    ...options // allow for additional options to be passed in
   };
 
-  const { data, isLoading, isError, error }: UseQueryResult<T, Error> =
-    useQuery(queryOptions);
-
-  return { data, isLoading, isError, error };
+  return useQuery(queryOptions);
 };
 
 export default useCustomQuery;
