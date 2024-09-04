@@ -9,13 +9,13 @@ import {
 interface InfoProps<T> {
   method: string;
   url: string;
-  enabled?: boolean;
   queryFn?: QueryFunction<T>;
   options?: Omit<UseQueryOptions<T, Error>, 'queryKey' | 'queryFn'>;
+  enabled?: boolean;
 }
 
 /**
- * 작성자명   : 원종석
+ * 작성자명   : 000
  * 작성일자   : 2023.11.06.(월)
  * 작성내용   : useQuery 커스텀 훅
  * 수정일자   : 2024.09.04 (수)
@@ -31,9 +31,9 @@ const useCustomQuery = <T>(
   const {
     method,
     url,
-    enabled = true,
     queryFn = () => axiosRequest.requestAxios<T>(method, url),
-    options = {}
+    options = {},
+    enabled = true
   } = info;
 
   const queryOptions: UseQueryOptions<T, Error> = {
