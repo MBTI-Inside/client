@@ -14,9 +14,9 @@ const Character = () => {
         width="281.706"
         height="19.4286"
         rx="9.71429"
-        fill="#EFC7D6"
+        fill="#78D9EE"
       />
-      <ellipse cx="279.493" cy="162" rx="53.2958" ry="51" fill="#EFC7D6" />
+      <ellipse cx="279.493" cy="162" rx="53.2958" ry="51" fill="#78D9EE" />
       <ellipse
         cx="280.127"
         cy="161.393"
@@ -38,7 +38,7 @@ const Character = () => {
         ry="5.46429"
         fill="white"
       />
-      <ellipse cx="151.329" cy="162" rx="53.2958" ry="51" fill="#EFC7D6" />
+      <ellipse cx="151.329" cy="162" rx="53.2958" ry="51" fill="#78D9EE" />
       <ellipse
         cx="151.963"
         cy="161.393"
