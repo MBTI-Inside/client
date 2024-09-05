@@ -1,7 +1,7 @@
 import tw from 'tailwind-styled-components';
 
 export const HomeContainer = tw.div`
-bg-[#0272F1]
+bg-custom-green
 w-full
 m-auto
 pt-16
