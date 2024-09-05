@@ -10,7 +10,8 @@ export default {
         brand: '#329dfa',
         'black-semi-transparent': 'rgba(0,0,0,0.7)',
         'regal-yellow': '#FFDF3F',
-        'regal-purple': '#B2ACF9'
+        'regal-purple': '#B2ACF9',
+        'custom-green': '#9FEEA2'
       },
       backgroundImage: {
         test: "url('./assets/image/test.svg')"
