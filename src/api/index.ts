@@ -1,4 +1,4 @@
-import axios, { AxiosInstance } from 'axios';
+import axios, { AxiosInstance, AxiosRequestConfig } from 'axios';
 
 import interceptors from './interceptors';
 
@@ -6,7 +6,7 @@ const allowMethod: string[] = ['get', 'post', 'put', 'patch', 'delete'];
 
 // Axios 인스턴스 생성
 const apiInstance: AxiosInstance = axios.create({
-  baseURL: process.env.REACT_APP_API_URL || 'http://localhost:4000/v1',
+  baseURL: import.meta.env.VITE_API_URL || 'http://localhost:4000/v1',
   timeout: 5000,
   withCredentials: true
 });
@@ -22,18 +22,20 @@ interface AxiosRequest {
   requestAxios: <T>(
     method: string,
     url: string,
-    data?: {},
-    headers?: {}
+    data?: AxiosRequestConfig['data'],
+    headers?: AxiosRequestConfig['headers']
   ) => Promise<T>;
 }
 
 const axiosRequest: AxiosRequest = {
   /**
-   * 작성자명   : 원종석
+   * 작성자명   : 000
    * 작성일자   : 2023.08.02.(수)
    * 작성내용   : axios로 요청 보내기
    * 수정일자   : 2023.11.06 (월)
    * 수정내용   : interceptor 삽입
+   * 수정일자   : 2024.06.20 (목)
+   * 수정내용   : data, headers 타입 명시
    * @param method 어떤 형식의 method를 보내는지 설정 (get, post, put, patch, delete)
    * @param url 호출 url 작성. path param은 url에 같이 정의해준다.
    * @param data request body에 해당하는 사항. post, put 시 추가/수정할 객체를 지정해주면 된다. get은 빈 객체를 보낸다.
@@ -49,6 +51,7 @@ const axiosRequest: AxiosRequest = {
     if (!allowMethod.includes(method.toLowerCase()))
       throw new Error('허용되지 않은 호출 method입니다.');
     try {
+      console.log(data);
       const response = await myAxiosApi({
         method,
         url: `${myAxiosApi.defaults.baseURL}${url}`,

@@ -6,4 +6,5 @@ export const QuestionViewContainer = tw.main`
     flex-col 
     gap-4 
     items-center
+    w-full
 `;
