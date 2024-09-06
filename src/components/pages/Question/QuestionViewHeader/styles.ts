@@ -4,7 +4,8 @@ export const QuestionViewHeaderContainer = tw.section`
     flex 
     bg-white 
     items-center 
-    w-full 
+    w-full
+    h-12
     justify-between
 `;
 
