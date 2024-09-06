@@ -21,12 +21,6 @@ const QuestionHeader = () => {
           >
             <FaSearch />
           </Button>
-          <Button
-            classProp="bg-primary"
-            onClick={() => openModal(<QuestionNote />, null, '문항 등록')}
-          >
-            <FaPlus />
-          </Button>
         </S.ButtonGroup>
       </S.QuestionTitle>
       <section className="w-full">
