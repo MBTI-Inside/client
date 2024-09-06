@@ -9,13 +9,13 @@ const QuestionCard = ({ question }: QuestionProps) => {
   const { navigateTo } = useRouter();
 
   // 구조 분해
-  const { id, subject, answer, mbtiType, createdAt } = question;
+  const { _id, subject, answer, mbtiType, createdAt } = question;
 
   // 왼쪽, 오른쪽 응답 데이터
   const [left, right] = answer;
 
   return (
-    <S.QuestionCardContainer onClick={() => navigateTo(`/question/${id}`)}>
+    <S.QuestionCardContainer onClick={() => navigateTo(`/question/${_id}`)}>
       <S.QuestionTitle>
         <Badge content={mbtiType} isClose={false} />
         <div className="line-clamp-2">{subject}</div>
