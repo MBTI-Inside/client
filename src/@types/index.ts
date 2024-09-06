@@ -1,7 +1,7 @@
 import { Question } from '@/@types/Question';
 
 export interface CommonResponse {
-  id: string;
+  _id: string;
   createdAt: string;
   updatedAt: string;
 }
