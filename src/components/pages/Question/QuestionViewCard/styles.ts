@@ -26,7 +26,7 @@ export const AnswerSection = tw.section`
 `;
 
 export const AnswerCard = tw.div`
-    w-72 
+    w-full
     border 
     font-bold 
     min-h-[7.5rem] 
