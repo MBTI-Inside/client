@@ -95,9 +95,12 @@ const Test = () => {
 
   return (
     <S.TestContainer>
-      <TestTitle />
       {questions && questions.length > 0 && (
         <>
+          <TestTitle
+            title={questions[currentQuestionIndex].subject}
+            seq={(currentQuestionIndex + 1).toString().padStart(2, '0')}
+          />
           <S.TestContent>
             <Button
               classProp={`w-full h-28 p-4 rounded-2xl text-black ${
