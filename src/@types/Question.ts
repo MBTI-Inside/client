@@ -4,10 +4,12 @@ type MBTIType = 'energy' | 'awareness' | 'judgement' | 'life';
 
 export interface Question extends CommonResponse {
   subject: string;
-  answer: {
-    type: string;
-    content: string;
-    proportion: number;
-  }[];
+  answer: Answer[];
   mbtiType: MBTIType;
+}
+
+export interface Answer {
+  type: string;
+  content: string;
+  proportion: number;
 }
