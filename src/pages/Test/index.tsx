@@ -1,4 +1,5 @@
 import { Question } from '@/@types';
+import { Answer } from '@/@types/Question';
 import axiosRequest from '@/api';
 import { useCustomQuery } from '@/hooks';
 import React, { useEffect, useState } from 'react';
@@ -10,23 +11,31 @@ import TestTitle from '@/components/pages/Test/Title';
 
 import * as S from '@/pages/Test/styles';
 
+interface MBTITypeAnswer extends Answer {
+  mbtiType: string;
+}
+
 const Test = () => {
   const { data: questions } = useCustomQuery(['get-survey-questions'], {
     method: 'get',
     url: '/surveys/mbti/test',
     queryFn: () =>
-      axiosRequest.requestAxios<Question[]>('get', '/surveys/mbti/test')
+      axiosRequest.requestAxios<Question[]>('get', '/surveys/mbti/test'),
+    options: {
+      staleTime: 1000 * 5 * 60
+    }
   });
 
+  // answers를 Answer 타입의 배열로 정의
+  const [answers, setAnswers] = useState<MBTITypeAnswer[]>([]);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
-  const [answers, setAnswers] = useState<{ [key: number]: number | null }>({});
   const [selectedOption, setSelectedOption] = useState<number | null>(null);
 
   // 첫 질문을 초기화
   useEffect(() => {
     if (questions && questions.length > 0) {
       setCurrentQuestionIndex(0);
-      setSelectedOption(answers[0] || null);
+      setSelectedOption(null); // 처음엔 선택 옵션 없음
     }
   }, [questions]);
 
@@ -34,21 +43,13 @@ const Test = () => {
   const isNextButtonDisabled = selectedOption === null;
 
   // 모든 질문에 대한 답변이 완료되었는지 확인
-  const isAllQuestionsAnswered =
-    Object.keys(answers).length === questions?.length;
+  const isAllQuestionsAnswered = answers.length === questions?.length;
 
   // 다음 질문으로 이동
   const handleNextQuestion = () => {
     if (questions && currentQuestionIndex < questions.length - 1) {
-      // 현재 질문의 선택된 답변을 상태에 저장
-      setAnswers((prevAnswers) => ({
-        ...prevAnswers,
-        [currentQuestionIndex]: selectedOption
-      }));
-
-      // 다음 질문으로 이동하고, 선택된 답변 초기화
       setCurrentQuestionIndex(currentQuestionIndex + 1);
-      setSelectedOption(answers[currentQuestionIndex + 1] || null);
+      setSelectedOption(null); // 다음 질문으로 넘어가면 선택 초기화
     }
   };
 
@@ -56,17 +57,33 @@ const Test = () => {
   const handlePreviousQuestion = () => {
     if (questions && currentQuestionIndex > 0) {
       setCurrentQuestionIndex(currentQuestionIndex - 1);
-      setSelectedOption(answers[currentQuestionIndex - 1] || null);
+      setSelectedOption(answers[currentQuestionIndex - 1]?.proportion || null);
     }
   };
 
   // 답변 선택 시 상태 업데이트
   const handleSelectOption = (optionIndex: number) => {
+    if (!questions || !questions[currentQuestionIndex]) {
+      return; // 질문 데이터가 없는 경우 함수 종료
+    }
+
     setSelectedOption(optionIndex);
-    setAnswers((prevAnswers) => ({
-      ...prevAnswers,
-      [currentQuestionIndex]: optionIndex
-    }));
+
+    // 현재 선택된 질문의 답변 객체 생성
+    const selectedAnswer: MBTITypeAnswer = {
+      mbtiType: questions[currentQuestionIndex].mbtiType,
+      type: questions[currentQuestionIndex].answer[optionIndex - 1].type,
+      content: questions[currentQuestionIndex].answer[optionIndex - 1].content,
+      proportion:
+        questions[currentQuestionIndex].answer[optionIndex - 1].proportion
+    };
+
+    // 기존의 answers 상태를 복사하고, 현재 질문에 대한 답변을 추가/수정
+    setAnswers((prevAnswers) => {
+      const updatedAnswers = [...prevAnswers];
+      updatedAnswers[currentQuestionIndex] = selectedAnswer; // 해당 질문에 대한 답변 업데이트
+      return updatedAnswers;
+    });
   };
 
   // 제출 버튼 클릭 시 실행될 함수
