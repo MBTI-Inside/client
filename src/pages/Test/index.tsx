@@ -1,7 +1,7 @@
 import { Question } from '@/@types';
 import { Answer } from '@/@types/Question';
 import axiosRequest from '@/api';
-import { useCustomQuery } from '@/hooks';
+import { useCustomMutation, useCustomQuery } from '@/hooks';
 import React, { useEffect, useState } from 'react';
 import { SlArrowLeft, SlArrowRight } from 'react-icons/sl';
 
@@ -11,8 +11,12 @@ import TestTitle from '@/components/pages/Test/Title';
 
 import * as S from '@/pages/Test/styles';
 
-interface MBTITypeAnswer extends Answer {
-  mbtiType: string;
+import { MBTIDatasOption } from '@/constants/MBTIOptions';
+
+import { calculateMbtiProportion, determineMBTI } from '@/utils/Calculate';
+
+export interface MBTITypeAnswer extends Answer {
+  mbtiType: keyof MBTIDatasOption;
 }
 
 const Test = () => {
@@ -89,7 +93,10 @@ const Test = () => {
   // 제출 버튼 클릭 시 실행될 함수
   const handleSubmit = () => {
     // 모든 답변 데이터를 서버로 제출
-    console.log('제출된 답변:', answers);
+    const mbtiResult = calculateMbtiProportion(answers);
+    const mbtiTypes = determineMBTI(mbtiResult);
+
+    // mbtiTypes를 api 태워서 mutate 하기
     // 여기서 axios 등을 이용해 서버로 데이터를 제출하는 로직 추가
   };
 

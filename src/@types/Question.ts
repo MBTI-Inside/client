@@ -13,3 +13,15 @@ export interface Answer {
   content: string;
   proportion: number;
 }
+
+export interface MBTIProportion {
+  type: string;
+  rate: number;
+}
+
+export interface MBTIProportions {
+  energy: MBTIProportion[];
+  awareness: MBTIProportion[];
+  judgement: MBTIProportion[];
+  life: MBTIProportion[];
+}
