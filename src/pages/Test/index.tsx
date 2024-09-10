@@ -2,8 +2,11 @@ import { Question } from '@/@types';
 import { Answer } from '@/@types/Question';
 import axiosRequest from '@/api';
 import { useCustomMutation, useCustomQuery } from '@/hooks';
-import React, { useEffect, useState } from 'react';
+import { calculateMbtiProportion, determineMBTI } from '@/utils';
+import { useEffect, useState } from 'react';
 import { SlArrowLeft, SlArrowRight } from 'react-icons/sl';
+
+import useRouter from '@/hooks/useRouter';
 
 import Button from '@/components/common/Button';
 import ProgressBar from '@/components/pages/Test/ProgressBar';
@@ -12,8 +15,6 @@ import TestTitle from '@/components/pages/Test/Title';
 import * as S from '@/pages/Test/styles';
 
 import { MBTIDatasOption } from '@/constants/MBTIOptions';
-
-import { calculateMbtiProportion, determineMBTI } from '@/utils/Calculate';
 
 export interface MBTITypeAnswer extends Answer {
   mbtiType: keyof MBTIDatasOption;
@@ -29,6 +30,12 @@ const Test = () => {
       staleTime: 1000 * 5 * 60
     }
   });
+
+  const { mutate } = useCustomMutation(['get-survey-questions'], {
+    method: 'patch'
+  });
+
+  const { navigateTo } = useRouter();
 
   // answers를 Answer 타입의 배열로 정의
   const [answers, setAnswers] = useState<MBTITypeAnswer[]>([]);
@@ -94,7 +101,26 @@ const Test = () => {
   const handleSubmit = () => {
     // 모든 답변 데이터를 서버로 제출
     const mbtiResult = calculateMbtiProportion(answers);
-    const mbtiTypes = determineMBTI(mbtiResult);
+    const mbtiTypeResult = determineMBTI(mbtiResult);
+
+    mutate(
+      {
+        url: `/mbtis/${mbtiTypeResult}` // 동적 URL
+      },
+      {
+        onSuccess: (data) => {
+          // 로딩 좀 걸어주면 좋을 것 같은뎅..
+          // mbtiTypeResult가 ENTJ 이런거임
+          navigateTo(`/result/${mbtiTypeResult}`, mbtiResult);
+
+          // 이거 navigate로 넘겨주고
+          // mbtiResult를 state로 넘겨주면 됨
+        },
+        onError: (error) => {
+          throw error;
+        }
+      }
+    );
 
     // mbtiTypes를 api 태워서 mutate 하기
     // 여기서 axios 등을 이용해 서버로 데이터를 제출하는 로직 추가
