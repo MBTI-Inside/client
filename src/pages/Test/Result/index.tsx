@@ -28,19 +28,24 @@ const TestResult = () => {
   const { data: mbtiData } = useCustomQuery(['get-mbti-datas'], {
     method: 'get',
     url: `/mbtis/${mbti}`,
-    queryFn: () => axiosRequest.requestAxios<MBTI[]>('get', `/mbtis/${mbti}`),
+    queryFn: () => axiosRequest.requestAxios<MBTI>('get', `/mbtis/${mbti}`),
     options: {
       staleTime: 1000 * 5 * 60
     }
   });
 
-  console.log(mbtiData);
   return (
     <S.TestResultContainer color={`bg-[${gColor}]`}>
       {/* TODO: mbti 데이터 undefined일 경우 예외처리 / 임시로 'XXXX' 추가 */}
       <ResultHeader mbti={mbti} />
       <Character bgcolor={bgColor} gcolor={gColor} />
-      <ResultDescription />
+      <ResultDescription
+        result={{
+          summary: mbtiData?.summary,
+          content: mbtiData?.content,
+          tags: mbtiData?.tags
+        }}
+      />
       <ResultStatistics />
       <ResultTypesRelations />
       <S.Buttons>
