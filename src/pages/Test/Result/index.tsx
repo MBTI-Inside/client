@@ -47,7 +47,7 @@ const TestResult = () => {
         }}
       />
       <ResultStatistics />
-      <ResultTypesRelations />
+      <ResultTypesRelations fits={mbtiData?.fit} />
       <S.Buttons>
         <Button
           classProp="w-80 h-14 text-lg bg-[#FFA500] hover:bg-gray-700 text-white border-none"
