@@ -20,6 +20,7 @@ const ResultDescription = ({ result }: ResultDescriptionProps) => {
         {tags?.map((tag: string) => {
           return (
             <Badge
+              key={tag}
               content={`#${tag}`}
               isClose={false}
               classProp="p-4 w-full text-center"
