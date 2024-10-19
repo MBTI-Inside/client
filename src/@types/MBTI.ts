@@ -1,11 +1,12 @@
 import { CommonResponse } from '.';
 
-interface Fit {
+export interface Fit {
   type: string;
   mbti: string;
   targetMbti: string;
   description: string;
 }
+
 export interface MBTI extends CommonResponse {
   type: string;
   summary: string;
