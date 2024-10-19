@@ -1,3 +1,7 @@
+import { MBTI } from '@/@types';
+import axiosRequest from '@/api';
+import { useCustomQuery } from '@/hooks';
+
 import useRouter from '@/hooks/useRouter';
 
 import Button from '@/components/common/Button';
@@ -9,12 +13,33 @@ import ResultTypesRelations from '@/components/pages/Test/ResultTypesRelations';
 
 import * as S from '@/pages/Test/Result/styles';
 
+import {
+  MBTI_TYPE_COLORS,
+  MBTI_TYPE_COLORS_PAIRS
+} from '@/constants/MBTIColors';
+
 const TestResult = () => {
-  const { navigateTo } = useRouter();
+  const { navigateTo, params, location } = useRouter();
+
+  const mbti = params.mbti ?? 'XXXX';
+  const bgColor = MBTI_TYPE_COLORS[mbti];
+  const gColor = MBTI_TYPE_COLORS_PAIRS[mbti];
+
+  const { data: mbtiData } = useCustomQuery(['get-mbti-datas'], {
+    method: 'get',
+    url: `/mbtis/${mbti}`,
+    queryFn: () => axiosRequest.requestAxios<MBTI[]>('get', `/mbtis/${mbti}`),
+    options: {
+      staleTime: 1000 * 5 * 60
+    }
+  });
+
+  console.log(mbtiData);
   return (
-    <S.TestResultContainer color={'bg-[#DDAADD]'}>
-      <ResultHeader />
-      <Character bgcolor={'#AAFFAA'} gcolor={'#DDAADD'} />
+    <S.TestResultContainer color={`bg-[${gColor}]`}>
+      {/* TODO: mbti 데이터 undefined일 경우 예외처리 / 임시로 'XXXX' 추가 */}
+      <ResultHeader mbti={mbti} />
+      <Character bgcolor={bgColor} gcolor={gColor} />
       <ResultDescription />
       <ResultStatistics />
       <ResultTypesRelations />
