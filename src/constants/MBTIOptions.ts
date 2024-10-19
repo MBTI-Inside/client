@@ -1,6 +1,6 @@
 type MBTIElementOption = 'E' | 'I' | 'N' | 'S' | 'T' | 'F' | 'J' | 'P';
 type MBTITypesOption = 'energy' | 'awareness' | 'judgement' | 'life';
-type MBTIDatasOption = {
+export type MBTIDatasOption = {
   energy: string[];
   awareness: string[];
   judgement: string[];

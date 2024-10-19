@@ -1,12 +1,15 @@
 import * as S from '@/components/pages/Test/Title/styles';
 
-const TestTitle = () => {
+interface TestTitleProps {
+  title: string;
+  seq: string;
+}
+
+const TestTitle = ({ title, seq }: TestTitleProps) => {
   return (
     <S.TestTitleContainer>
-      <S.TestNumber>01</S.TestNumber>
-      <S.TestQuestion>
-        친구와 1시간이 넘는 통화를 마친 뒤 당신의 상태는?
-      </S.TestQuestion>
+      <S.TestNumber>{seq}</S.TestNumber>
+      <S.TestQuestion>{title}</S.TestQuestion>
     </S.TestTitleContainer>
   );
 };
