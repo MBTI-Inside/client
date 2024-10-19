@@ -102,7 +102,7 @@ const Test = () => {
     // 모든 답변 데이터를 서버로 제출
     const mbtiResult = calculateMbtiProportion(answers);
     const mbtiTypeResult = determineMBTI(mbtiResult);
-    console.log(mbtiTypeResult, 'mbtiTypeResult');
+
     mutate(
       {
         url: `/mbtis/${mbtiTypeResult}` // 동적 URL
@@ -117,9 +117,6 @@ const Test = () => {
         }
       }
     );
-
-    // mbtiTypes를 api 태워서 mutate 하기
-    // 여기서 axios 등을 이용해 서버로 데이터를 제출하는 로직 추가
   };
 
   return (
