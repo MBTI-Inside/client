@@ -51,7 +51,6 @@ const axiosRequest: AxiosRequest = {
     if (!allowMethod.includes(method.toLowerCase()))
       throw new Error('허용되지 않은 호출 method입니다.');
     try {
-      console.log(data);
       const response = await myAxiosApi({
         method,
         url: `${myAxiosApi.defaults.baseURL}${url}`,
