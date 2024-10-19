@@ -102,19 +102,15 @@ const Test = () => {
     // 모든 답변 데이터를 서버로 제출
     const mbtiResult = calculateMbtiProportion(answers);
     const mbtiTypeResult = determineMBTI(mbtiResult);
-
+    console.log(mbtiTypeResult, 'mbtiTypeResult');
     mutate(
       {
         url: `/mbtis/${mbtiTypeResult}` // 동적 URL
       },
       {
         onSuccess: (data) => {
-          // 로딩 좀 걸어주면 좋을 것 같은뎅..
-          // mbtiTypeResult가 ENTJ 이런거임
+          // TODO: 로딩 좀 걸어주면 좋을 것 같은뎅..
           navigateTo(`/result/${mbtiTypeResult}`, mbtiResult);
-
-          // 이거 navigate로 넘겨주고
-          // mbtiResult를 state로 넘겨주면 됨
         },
         onError: (error) => {
           throw error;
