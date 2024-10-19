@@ -1,3 +1,4 @@
+import { MBTI } from '@/@types/MBTI';
 import { Question } from '@/@types/Question';
 
 export interface CommonResponse {
@@ -6,4 +7,4 @@ export interface CommonResponse {
   updatedAt: string;
 }
 
-export type { Question };
+export type { Question, MBTI };
