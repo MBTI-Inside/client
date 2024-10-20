@@ -16,7 +16,7 @@ const ResultTypesRelations = ({ fits }: ResultTypesReleationsProps) => {
       <S.RelationsContainer isGood={true}>
         <p className="text-lg font-bold">잘 어울리는 유형</p>
         <p className="font-bold">{goodType?.targetMbti}</p>
-        <p>{goodType?.description};</p>
+        <p>{goodType?.description}</p>
       </S.RelationsContainer>
       <S.RelationsContainer isGood={false}>
         <p className="text-lg font-bold">안 어울리는 유형</p>
