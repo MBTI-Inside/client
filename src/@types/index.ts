@@ -1,4 +1,10 @@
-import { Question } from '@/@types/Question';
+import { Fit, MBTI } from '@/@types/MBTI';
+import {
+  MBTIProportion,
+  MBTIProportions,
+  MBTIType,
+  Question
+} from '@/@types/Question';
 
 export interface CommonResponse {
   _id: string;
@@ -6,4 +12,4 @@ export interface CommonResponse {
   updatedAt: string;
 }
 
-export type { Question };
+export type { Question, MBTIProportions, MBTIProportion, MBTI, MBTIType, Fit };

@@ -1,6 +1,6 @@
 import { CommonResponse } from '.';
 
-type MBTIType = 'energy' | 'awareness' | 'judgement' | 'life';
+export type MBTIType = 'energy' | 'awareness' | 'judgement' | 'life';
 
 export interface Question extends CommonResponse {
   subject: string;

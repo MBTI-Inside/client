@@ -1,7 +1,11 @@
 import Button from '@/components/common/Button';
 import * as S from '@/components/pages/Test/ResultHeader/styles';
 
-const ResultHeader = () => {
+interface ResultHeaderProps {
+  mbti: string;
+}
+
+const ResultHeader = ({ mbti }: ResultHeaderProps) => {
   // Web Share API 적용
   const handleShareClick = async () => {
     // TODO: 배포 후 모바일 환경에서 확인할 것.
@@ -36,7 +40,7 @@ const ResultHeader = () => {
 
   return (
     <S.ResultHeaderContainer>
-      <p className="font-bold text-5xl text-white">ESTJ</p>
+      <p className="font-bold text-5xl text-white">{mbti}</p>
       <Button onClick={handleShareClick}>결과 공유하기</Button>
     </S.ResultHeaderContainer>
   );
