@@ -1,12 +1,24 @@
+import { MemoPost } from '@/@types';
 import { IoHeartOutline } from 'react-icons/io5';
 import { IoHeartSharp } from 'react-icons/io5';
 
 import Button from '@/components/common/Button';
 import * as S from '@/components/pages/Memo/MemoViewContent/styles';
 
-const MemoViewContent = (params: any) => {
-  const { id, title, content, like_count, cmt_count, userName, date } =
-    params.data;
+interface MemoViewContentProps {
+  memo: MemoPost;
+}
+const MemoViewContent = ({ memo }: MemoViewContentProps) => {
+  const {
+    _id,
+    title,
+    content,
+    mbtiType,
+    cardColor,
+    likeCount,
+    cmtCount,
+    createdAt
+  } = memo;
 
   return (
     <S.MemoViewContentContainer>
@@ -21,12 +33,12 @@ const MemoViewContent = (params: any) => {
           >
             <IoHeartOutline />
             {/* <IoHeartSharp className="text-red-600" /> */}
-            <span>{like_count}</span>
+            <span>{likeCount}</span>
           </Button>
         </S.ContentGroup>
         <S.ContentGroup>
-          <span className="text-sm">{userName}</span>
-          <span className="text-xs">{date}</span>
+          <span className="text-sm">userName</span>
+          <span className="text-xs">{createdAt.toString()}</span>
         </S.ContentGroup>
       </S.ContentInfo>
     </S.MemoViewContentContainer>
