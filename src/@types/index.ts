@@ -1,4 +1,5 @@
 import { Fit, MBTI } from '@/@types/MBTI';
+import { MemoPost } from '@/@types/Memo';
 import {
   MBTIProportion,
   MBTIProportions,
@@ -12,4 +13,12 @@ export interface CommonResponse {
   updatedAt: string;
 }
 
-export type { Question, MBTIProportions, MBTIProportion, MBTI, MBTIType, Fit };
+export type {
+  MemoPost,
+  Question,
+  MBTIProportions,
+  MBTIProportion,
+  MBTI,
+  MBTIType,
+  Fit
+};
