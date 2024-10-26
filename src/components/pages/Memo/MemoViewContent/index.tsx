@@ -37,7 +37,6 @@ const MemoViewContent = ({ memo }: MemoViewContentProps) => {
           </Button>
         </S.ContentGroup>
         <S.ContentGroup>
-          <span className="text-sm">userName</span>
           <span className="text-xs">{createdAt.toString()}</span>
         </S.ContentGroup>
       </S.ContentInfo>
