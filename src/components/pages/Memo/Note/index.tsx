@@ -8,11 +8,12 @@ import ColorChip from '@/components/common/ColorChip';
 import * as S from '@/components/pages/Memo/Note/styles';
 
 const Note = (params: any) => {
-  const { id, title, content } = params;
+  const { id, title, content, password } = params;
   const { openModal } = useModalContext();
   // openModal(<MBTITypes />, null, 'MBTI 선택')
   const titleRef = useRef(title);
   const contentRef = useRef(content);
+  const passwordRef = useRef(password);
 
   const [info, setInfo] = useState({
     method: id ? 'patch' : 'post',
@@ -33,6 +34,11 @@ const Note = (params: any) => {
         placeholder="내용을 입력하세요."
         defaultValue={contentRef.current}
         ref={contentRef}
+      />
+      <S.InputTitle
+        type="password"
+        placeholder="메모 비밀번호를 입력하세요."
+        ref={passwordRef}
       />
       <Button
         classProp="w-full h-14 text-lg text-white bg-accent"
