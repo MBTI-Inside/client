@@ -25,7 +25,10 @@ const MemoHeader = () => {
           </Button>
           <Button
             classProp="bg-info"
-            onClick={() => openModal(<MBTITypes />, null, 'MBTI 선택')}
+            onClick={() =>
+              openModal(<MBTITypes mbtiType={'ESTJ'} />, null, 'MBTI 선택')
+            }
+            // TODO: 임시로 mbtiType 제공. 추후 연결 필요
           >
             <FaExchangeAlt />
           </Button>

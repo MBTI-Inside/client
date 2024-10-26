@@ -5,6 +5,7 @@ import { useModalContext } from '@/hooks/useModal';
 
 import Button from '@/components/common/Button';
 import ColorChip from '@/components/common/ColorChip';
+import MBTITypes from '@/components/common/MBTITypes';
 import * as S from '@/components/pages/Memo/Note/styles';
 
 const Note = (params: any) => {
@@ -14,6 +15,7 @@ const Note = (params: any) => {
   const titleRef = useRef(title);
   const contentRef = useRef(content);
   const passwordRef = useRef(password);
+  const [mbtiType, setMbtiType] = useState('ESTJ');
 
   const [info, setInfo] = useState({
     method: id ? 'patch' : 'post',
@@ -42,9 +44,13 @@ const Note = (params: any) => {
       />
       <Button
         classProp="w-full h-14 text-lg text-white bg-accent"
-        onClick={() => {}}
+        onClick={() => {
+          openModal(<MBTITypes mbtiType={mbtiType} />, null, 'MBTI 선택').then(
+            (result) => setMbtiType(result)
+          );
+        }}
       >
-        <span>{'ESTJ'}</span>
+        <span>{mbtiType}</span>
         <FaExchangeAlt />
       </Button>
       <Button
