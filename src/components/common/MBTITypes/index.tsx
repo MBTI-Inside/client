@@ -8,7 +8,10 @@ import * as S from '@/components/common/MBTITypes/styles';
 import Toggle from '@/components/common/Toggle';
 
 interface ToggleState {
-  [key: string]: string;
+  energy: string;
+  awareness: string;
+  judgement: string;
+  life: string;
 }
 
 interface Action {
@@ -19,12 +22,12 @@ interface Action {
   };
 }
 
-const initialState: ToggleState = {
-  energy: 'E',
-  awareness: 'S',
-  judgement: 'T',
-  life: 'J'
-};
+const initialState = (mbtiType: string): ToggleState => ({
+  energy: mbtiType[0], // 첫 번째 문자: E/I
+  awareness: mbtiType[1], // 두 번째 문자: S/N
+  judgement: mbtiType[2], // 세 번째 문자: T/F
+  life: mbtiType[3] // 네 번째 문자: J/P
+});
 
 const reducer = (state: ToggleState, action: Action) => {
   switch (action.type) {
@@ -35,15 +38,19 @@ const reducer = (state: ToggleState, action: Action) => {
   }
 };
 
-const MBTITypes = () => {
-  const { closeModal } = useModalContext();
+interface MBTITypesProps {
+  mbtiType: string;
+}
 
-  const [state, dispatch] = useReducer(reducer, initialState);
+const MBTITypes = ({ mbtiType }: MBTITypesProps) => {
+  const { closeModal } = useModalContext();
+  const [state, dispatch] = useReducer(reducer, initialState(mbtiType));
 
   const doSomething = () => {
     // Do something with state
-    console.log(state);
-    closeModal(state);
+    closeModal(
+      `${state.energy}${state.awareness}${state.judgement}${state.life}`
+    );
   };
 
   return (
