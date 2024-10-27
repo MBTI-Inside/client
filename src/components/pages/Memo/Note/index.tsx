@@ -16,6 +16,7 @@ const Note = (params: any) => {
   const contentRef = useRef(content);
   const passwordRef = useRef(password);
   const [mbtiType, setMbtiType] = useState('ESTJ');
+  const [colorType, setColorType] = useState('yellow');
 
   const [info, setInfo] = useState({
     method: id ? 'patch' : 'post',
@@ -56,11 +57,15 @@ const Note = (params: any) => {
       <Button
         classProp="w-full h-14 text-lg text-white bg-primary"
         onClick={() => {
-          openModal(<ColorChip />, null, '배경색상 선택');
+          openModal(
+            <ColorChip colorType={colorType} />,
+            null,
+            '배경색상 선택'
+          ).then((result) => setColorType(result));
         }}
       >
         <span>배경 색상</span>
-        <S.MemoColor bg="bg-[#FF9D42]" />
+        <S.MemoColor bg={`bg-[${colorType}]`} />
       </Button>
       <Button classProp="w-full h-14 text-lg text-white bg-secondary">
         작성 완료

@@ -2,14 +2,21 @@ import { bgColors } from '@/constants';
 import { useState } from 'react';
 import { FaCheck } from 'react-icons/fa';
 
+import { useModalContext } from '@/hooks/useModal';
+
 import Button from '@/components/common/Button';
 import * as S from '@/components/common/ColorChip/index.styles';
 
-const ColorChip = () => {
-  const [color, setColor] = useState('yellow');
+interface ColorChipProps {
+  colorType: string;
+}
+
+const ColorChip = ({ colorType }: ColorChipProps) => {
+  const [color, setColor] = useState(colorType);
+  const { closeModal } = useModalContext();
 
   const doSomething = () => {
-    console.log(color);
+    closeModal(colorType);
   };
 
   return (
