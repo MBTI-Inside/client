@@ -1,7 +1,9 @@
-import { useRef, useState } from 'react';
+import { useCustomMutation } from '@/hooks';
+import { useEffect, useRef, useState } from 'react';
 import { FaExchangeAlt } from 'react-icons/fa';
 
 import { useModalContext } from '@/hooks/useModal';
+import useRouter from '@/hooks/useRouter';
 
 import Button from '@/components/common/Button';
 import ColorChip from '@/components/common/ColorChip';
@@ -10,19 +12,49 @@ import * as S from '@/components/pages/Memo/Note/styles';
 
 const Note = (params: any) => {
   const { id, title, content, password } = params;
-  const { openModal } = useModalContext();
+  const { navigateTo } = useRouter();
+  const { openModal, closeModal } = useModalContext();
   // openModal(<MBTITypes />, null, 'MBTI 선택')
   const titleRef = useRef(title);
   const contentRef = useRef(content);
   const passwordRef = useRef(password);
   const [mbtiType, setMbtiType] = useState('ESTJ');
-  const [colorType, setColorType] = useState('yellow');
+  const [colorType, setColorType] = useState('bg-[#FFDE3F]');
 
   const [info, setInfo] = useState({
     method: id ? 'patch' : 'post',
-    url: id ? `/boards/${id}` : '/boards',
+    url: id ? `/memos/${id}` : '/memos',
     data: { title: '', content: '' }
   });
+
+  const { mutate } = useCustomMutation(['get-memos'], {
+    method: info.method as 'patch' | 'post'
+  });
+
+  // 제출 버튼 클릭 시 실행될 함수
+  const handleSubmit = () => {
+    // TODO: 유효성 검사 체크 필요
+    mutate(
+      {
+        url: info.url, // 동적 URL
+        data: {
+          title: titleRef.current.value,
+          content: contentRef.current.value,
+          password: passwordRef.current.value,
+          mbtiType,
+          cardColor: colorType
+        }
+      },
+      {
+        onSuccess: (data) => {
+          closeModal(data);
+        },
+        onError: (error) => {
+          throw error;
+        }
+      }
+    );
+  };
 
   return (
     <S.NoteFormContainer>
@@ -65,9 +97,12 @@ const Note = (params: any) => {
         }}
       >
         <span>배경 색상</span>
-        <S.MemoColor bg={`bg-[${colorType}]`} />
+        <S.MemoColor bg={colorType} />
       </Button>
-      <Button classProp="w-full h-14 text-lg text-white bg-secondary">
+      <Button
+        classProp="w-full h-14 text-lg text-white bg-secondary"
+        onClick={() => handleSubmit()}
+      >
         작성 완료
       </Button>
     </S.NoteFormContainer>
