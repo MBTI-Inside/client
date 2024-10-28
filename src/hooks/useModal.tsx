@@ -17,7 +17,7 @@ interface ModalContextProps {
     component: React.ReactNode,
     parameter: any,
     title: string
-  ) => void;
+  ) => Promise<any>;
   closeModal: (callback: any) => void;
 }
 
@@ -29,25 +29,28 @@ const ModalProvider: React.FC<{ children: React.ReactNode }> = ({
   const [modalStack, setModalStack] = useState<ModalProps[]>([]);
 
   const openModal = (
-    component: React.ReactNode,
+    component: ReactNode,
     parameter: any,
     title: string
-  ): void => {
-    const modalProps = {
-      component,
-      parameter,
-      onClose: () => {}, // 모달이 닫힐 때 호출할 함수
-      title,
-      opened: true
-    };
-    setModalStack((prevStack) => [...prevStack, modalProps]);
+  ): Promise<any> => {
+    return new Promise((resolve) => {
+      const modalProps = {
+        component,
+        parameter,
+        onClose: resolve, // 모달이 닫힐 때 resolve 호출
+        title,
+        opened: true
+      };
+      setModalStack((prevStack) => [...prevStack, modalProps]);
+    });
   };
 
-  const closeModal = (callback?: any) => {
+  const closeModal = (result?: any) => {
     setModalStack((prevStack) => {
       const currentModal = prevStack[prevStack.length - 1];
-      currentModal.onClose(callback);
-
+      if (currentModal) {
+        currentModal.onClose(result); // Promise resolve 호출
+      }
       return prevStack.slice(0, -1);
     });
   };

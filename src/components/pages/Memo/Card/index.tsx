@@ -1,3 +1,4 @@
+import { MemoPost } from '@/@types';
 import { AiOutlineComment } from 'react-icons/ai';
 import { IoHeartOutline } from 'react-icons/io5';
 
@@ -6,33 +7,37 @@ import useRouter from '@/hooks/useRouter';
 import * as S from '@/components/pages/Memo/Card/index.styles';
 
 export interface CardProps {
-  memo: {
-    id: number;
-    title: string;
-    content: string;
-    date: any; // TODO: date 어떻게 표시할 것인지 논의 후 타입 정의할 것
-    mbti: string;
-    likeCount: number;
-    cmtCount: number;
-  };
+  memo: MemoPost;
 }
 
 const Card = ({ memo }: CardProps) => {
-  const { id, title, content, date, mbti, likeCount, cmtCount } = memo;
+  const {
+    _id,
+    title,
+    content,
+    mbtiType,
+    cardColor,
+    likeCount,
+    cmtCount,
+    createdAt
+  } = memo;
   const { navigateTo } = useRouter();
 
   return (
-    <S.CardWrapper onClick={() => navigateTo(`/memo-view/${id}`)}>
+    <S.CardWrapper
+      cardColor={cardColor}
+      onClick={() => navigateTo(`/memo-view/${_id}`)}
+    >
       <S.CardBody>
         <article>
           <S.Title>{title}</S.Title>
           <S.Content>{content}</S.Content>
         </article>
         <S.CardInfoContainer>
-          <S.MemoDate>{date}</S.MemoDate>
+          <S.MemoDate>{createdAt.toString()}</S.MemoDate>
           <hr />
           <S.CardInfo>
-            <div className="font-bold">{mbti}</div>
+            <div className="font-bold">{mbtiType}</div>
             <S.HistoryContainer>
               <S.History>
                 <IoHeartOutline

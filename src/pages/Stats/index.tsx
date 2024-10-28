@@ -87,9 +87,9 @@ const Stats = () => {
       {/* TODO: 모달 닫을 때 콜백함수 추가 필요 */}
       <Button
         classProp="w-80 h-14 text-lg bg-blue-500 hover:bg-blue-600 text-white"
-        onClick={() => openModal(<MBTITypes />, null, 'MBTI 선택')}
+        onClick={() => navigate('/question')}
       >
-        MBTI별 통계
+        문항별 통계 보러가기
       </Button>
       <Button
         classProp="w-80 h-14 text-lg bg-fuchsia-400 hover:bg-fuchsia-500 text-white"

@@ -1,11 +1,15 @@
 import tw from 'tailwind-styled-components';
 
+interface CardWrapperProps {
+  cardColor: string;
+}
+
 // TODO: 색상 props로 전달받아야 함.
-export const CardWrapper = tw.section`
+export const CardWrapper = tw.section<CardWrapperProps>`
     card
     w-11/12
     h-40 
-    bg-green-300
+    ${(bg) => (bg.cardColor ? bg.cardColor : bg.cardColor)}
     shadow-xl
 `;
 

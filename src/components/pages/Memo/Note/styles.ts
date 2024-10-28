@@ -32,7 +32,7 @@ export const InputContent = tw.textarea`
     textarea 
     textarea-primary 
     w-full 
-    h-80 
+    h-72
     p-4
     text-base 
     bg-inherit 

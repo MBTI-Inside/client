@@ -2,45 +2,48 @@ import { bgColors } from '@/constants';
 import { useState } from 'react';
 import { FaCheck } from 'react-icons/fa';
 
+import { useModalContext } from '@/hooks/useModal';
+
 import Button from '@/components/common/Button';
 import * as S from '@/components/common/ColorChip/index.styles';
 
-const ColorChip = () => {
-  const [color, setColor] = useState('yellow');
+interface ColorChipProps {
+  colorType: string;
+}
 
-  const doSomething = () => {
-    console.log(color);
-  };
+const ColorChip = ({ colorType }: ColorChipProps) => {
+  const [color, setColor] = useState(colorType);
+  const { closeModal } = useModalContext();
 
   return (
     <S.ColorChipContainer>
       <S.ChipSetGroup>
-        {bgColors.map(({ colorId, bgColor, name }) => (
-          <S.ChipSet key={colorId}>
+        {bgColors.map(({ bgColor, name }) => (
+          <S.ChipSet key={bgColor}>
             <input
               type="radio"
-              id={colorId}
-              value={colorId}
-              checked={color === colorId}
+              id={bgColor}
+              value={bgColor}
+              checked={color === bgColor}
               name="colors"
               className="hidden"
               onChange={(e) => {
                 setColor(e.target.value);
               }}
             />
-            <S.ChipLabel htmlFor={colorId}>
+            <S.ChipLabel htmlFor={bgColor}>
               <S.Chip bg={bgColor} />
-              <S.ChipName isSelectedColor={color === colorId}>
+              <S.ChipName isSelectedColor={color === bgColor}>
                 {name}
               </S.ChipName>
-              {color === colorId && <FaCheck />}
+              {color === bgColor && <FaCheck />}
             </S.ChipLabel>
           </S.ChipSet>
         ))}
       </S.ChipSetGroup>
       <Button
         classProp="w-full h-14 text-lg bg-blue-600 text-white hover:bg-blue-700"
-        onClick={() => doSomething()}
+        onClick={() => closeModal(color)}
       >
         확인
       </Button>
