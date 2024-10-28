@@ -17,7 +17,6 @@ const Memo = () => {
 
   const [limit] = useState(5);
   const [skip, setSkip] = useState(0);
-
   const {
     data: memos,
     fetchNextPage,
@@ -26,22 +25,17 @@ const Memo = () => {
     error
   } = useInfiniteQuery(
     ['get-memos'],
-    () =>
+    ({ pageParam = 0 }) =>
       axiosRequest.requestAxios<MemoPost[]>(
         'get',
-        `/memos?limit=${limit}&skip=${skip}`
+        `/memos?limit=${limit}&skip=${pageParam}`
       ),
     {
       getNextPageParam: (lastPage, allPages) => {
-        const totalFetchedItems = allPages.reduce(
-          (acc, page) => acc + page.length,
-          0
-        );
-        // 만약 서버에서 응답받은 데이터가 limit보다 적으면 다음 페이지가 없다고 판단
-        return lastPage.length === limit ? totalFetchedItems : undefined;
+        return lastPage.length === limit ? allPages.length * limit : undefined;
       },
-      refetchOnMount: false, // 컴포넌트가 다시 마운트될 때 데이터를 다시 요청하지 않음
-      refetchOnWindowFocus: false, // 창에 포커스가 다시 맞춰질 때 데이터를 다시 요청하지 않음
+      refetchOnMount: false,
+      refetchOnWindowFocus: false,
       onError: (error: Error) => {
         setError(error);
       }
