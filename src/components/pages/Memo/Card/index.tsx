@@ -24,7 +24,10 @@ const Card = ({ memo }: CardProps) => {
   const { navigateTo } = useRouter();
 
   return (
-    <S.CardWrapper onClick={() => navigateTo(`/memo-view/${_id}`)}>
+    <S.CardWrapper
+      cardColor={cardColor}
+      onClick={() => navigateTo(`/memo-view/${_id}`)}
+    >
       <S.CardBody>
         <article>
           <S.Title>{title}</S.Title>
