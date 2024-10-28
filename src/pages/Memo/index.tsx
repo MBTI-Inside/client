@@ -58,7 +58,6 @@ const Memo = () => {
     setSkip((prev) => prev + 5);
     fetchNextPage();
   }
-  console.log(memos);
 
   return (
     <S.MemoContainer>
