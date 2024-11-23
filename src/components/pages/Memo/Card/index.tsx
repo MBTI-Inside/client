@@ -37,9 +37,7 @@ const Card = ({ memo }: CardProps) => {
         url: `/memos/${id}/like` // 동적 URL
       },
       {
-        onSuccess: (data) => {
-          console.log('성공', data);
-        },
+        onSuccess: () => {},
         onError: (error) => {
           setError(error);
         }
