@@ -1,3 +1,4 @@
+import { MemoPost } from '@/@types';
 import { useMemo } from 'react';
 import { CiMenuKebab } from 'react-icons/ci';
 import { IoIosArrowBack } from 'react-icons/io';
@@ -8,13 +9,17 @@ import Middle from '@/components/layout/Header/Middle';
 import Right from '@/components/layout/Header/Right';
 import * as S from '@/components/pages/Memo/MemoViewHeader/index.styles';
 
-const MemoViewHeader = () => {
+interface MemoViewHeaderProps {
+  memo: MemoPost;
+}
+
+const MemoViewHeader = ({ memo }: MemoViewHeaderProps) => {
   const nav = useNavigate();
 
   const menuItems = useMemo(() => {
     const items = [
-      { id: 1, label: '내정보', onClick: () => {} },
-      { id: 2, label: '로그아웃', onClick: () => {} }
+      { id: 1, label: '수정', onClick: () => {} },
+      { id: 2, label: '삭제', onClick: () => {} }
     ];
     return items;
   }, []);

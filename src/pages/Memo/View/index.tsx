@@ -8,6 +8,8 @@ import Comment from '@/components/pages/Memo/Comment';
 import MemoViewContent from '@/components/pages/Memo/MemoViewContent';
 import MemoViewHeader from '@/components/pages/Memo/MemoViewHeader';
 
+import { MemoViewWrapper } from './styles';
+
 const MemoView = () => {
   const { params } = useRouter();
   const { id } = params as { id: string };
@@ -18,14 +20,12 @@ const MemoView = () => {
     queryFn: () => axiosRequest.requestAxios<MemoPost>('get', `/memos/${id}`)
   });
 
-  console.log(memo);
   return (
-    // TODO: 배경색 받아서 설정
-    <div className="bg-green-700 flex flex-1 flex-col gap-4 items-center">
-      <MemoViewHeader />
+    <MemoViewWrapper cardColor={memo?.cardColor}>
+      {memo && <MemoViewHeader memo={memo} />}
       {memo && <MemoViewContent memo={memo} />}
       <Comment />
-    </div>
+    </MemoViewWrapper>
   );
 };
 

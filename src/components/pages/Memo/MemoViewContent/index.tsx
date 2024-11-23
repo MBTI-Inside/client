@@ -1,6 +1,10 @@
 import { MemoPost } from '@/@types';
+import { useCustomMutation } from '@/hooks';
+import dayjs from 'dayjs';
 import { IoHeartOutline } from 'react-icons/io5';
 import { IoHeartSharp } from 'react-icons/io5';
+
+import { useHandleError } from '@/hooks/useHandleError';
 
 import Button from '@/components/common/Button';
 import * as S from '@/components/pages/Memo/MemoViewContent/styles';
@@ -8,7 +12,9 @@ import * as S from '@/components/pages/Memo/MemoViewContent/styles';
 interface MemoViewContentProps {
   memo: MemoPost;
 }
+
 const MemoViewContent = ({ memo }: MemoViewContentProps) => {
+  const setError = useHandleError(); // 에러 핸들링 함수
   const {
     _id,
     title,
@@ -20,6 +26,24 @@ const MemoViewContent = ({ memo }: MemoViewContentProps) => {
     createdAt
   } = memo;
 
+  const { mutate } = useCustomMutation(['get-memo'], {
+    method: 'patch'
+  });
+
+  const handleClickLike = (id: string) => {
+    mutate(
+      {
+        url: `/memos/${id}/like` // 동적 URL
+      },
+      {
+        onSuccess: () => {},
+        onError: (error) => {
+          setError(error);
+        }
+      }
+    );
+  };
+
   return (
     <S.MemoViewContentContainer>
       <S.Title>{title}</S.Title>
@@ -28,16 +52,17 @@ const MemoViewContent = ({ memo }: MemoViewContentProps) => {
       <S.ContentInfo>
         <S.ContentGroup>
           <Button
-            classProp="h-8 bg-green-700"
-            onClick={() => alert('좋아요 클릭 or 취소')}
+            classProp={`h-8 ${cardColor}`}
+            onClick={() => handleClickLike(_id)}
           >
             <IoHeartOutline />
-            {/* <IoHeartSharp className="text-red-600" /> */}
             <span>{likeCount}</span>
           </Button>
         </S.ContentGroup>
         <S.ContentGroup>
-          <span className="text-xs">{createdAt.toString()}</span>
+          <span className="text-xs">
+            {dayjs(createdAt).format('YYYY-MM-DD HH:mm').toString()}
+          </span>
         </S.ContentGroup>
       </S.ContentInfo>
     </S.MemoViewContentContainer>
