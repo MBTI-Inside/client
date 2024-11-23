@@ -1,7 +1,10 @@
 import { MemoPost } from '@/@types';
+import { useCustomMutation } from '@/hooks';
+import dayjs from 'dayjs';
 import { AiOutlineComment } from 'react-icons/ai';
 import { IoHeartOutline } from 'react-icons/io5';
 
+import { useHandleError } from '@/hooks/useHandleError';
 import useRouter from '@/hooks/useRouter';
 
 import * as S from '@/components/pages/Memo/Card/index.styles';
@@ -21,20 +24,40 @@ const Card = ({ memo }: CardProps) => {
     cmtCount,
     createdAt
   } = memo;
+  const setError = useHandleError(); // 에러 핸들링 함수
   const { navigateTo } = useRouter();
 
+  const { mutate } = useCustomMutation(['get-memos'], {
+    method: 'patch'
+  });
+
+  const handleClickLike = (id: string) => {
+    mutate(
+      {
+        url: `/memos/${id}/like` // 동적 URL
+      },
+      {
+        onSuccess: (data) => {
+          console.log('성공', data);
+        },
+        onError: (error) => {
+          setError(error);
+        }
+      }
+    );
+  };
+
   return (
-    <S.CardWrapper
-      cardColor={cardColor}
-      onClick={() => navigateTo(`/memo-view/${_id}`)}
-    >
+    <S.CardWrapper cardColor={cardColor}>
       <S.CardBody>
-        <article>
+        <article onClick={() => navigateTo(`/memo-view/${_id}`)}>
           <S.Title>{title}</S.Title>
           <S.Content>{content}</S.Content>
         </article>
         <S.CardInfoContainer>
-          <S.MemoDate>{createdAt.toString()}</S.MemoDate>
+          <S.MemoDate>
+            {dayjs(createdAt).format('YYYY-MM-DD HH:mm').toString()}
+          </S.MemoDate>
           <hr />
           <S.CardInfo>
             <div className="font-bold">{mbtiType}</div>
@@ -42,7 +65,7 @@ const Card = ({ memo }: CardProps) => {
               <S.History>
                 <IoHeartOutline
                   className="cursor-pointer"
-                  onClick={() => alert('좋아요 클릭 or 취소')}
+                  onClick={() => handleClickLike(_id)}
                 />
                 <span>{likeCount}</span>
               </S.History>
