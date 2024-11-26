@@ -4,6 +4,9 @@ import { CiMenuKebab } from 'react-icons/ci';
 import { IoIosArrowBack } from 'react-icons/io';
 import { useNavigate } from 'react-router-dom';
 
+import { useModalContext } from '@/hooks/useModal';
+
+import Dropdown from '@/components/common/Dropdown';
 import Left from '@/components/layout/Header/Left';
 import Middle from '@/components/layout/Header/Middle';
 import Right from '@/components/layout/Header/Right';
@@ -15,11 +18,28 @@ interface MemoViewHeaderProps {
 
 const MemoViewHeader = ({ memo }: MemoViewHeaderProps) => {
   const nav = useNavigate();
+  const { openModal } = useModalContext();
 
   const menuItems = useMemo(() => {
     const items = [
-      { id: 1, label: '수정', onClick: () => {} },
-      { id: 2, label: '삭제', onClick: () => {} }
+      {
+        id: 1,
+        label: '수정',
+        onClick: () => {
+          openModal(<>test</>, null, '암호 입력').then((result) =>
+            console.log(result)
+          );
+        }
+      },
+      {
+        id: 2,
+        label: '삭제',
+        onClick: () => {
+          openModal(<>test</>, null, '암호 입력').then((result) =>
+            console.log(result)
+          );
+        }
+      }
     ];
     return items;
   }, []);
@@ -31,15 +51,10 @@ const MemoViewHeader = ({ memo }: MemoViewHeaderProps) => {
       </Left>
       <Middle>ESTJ</Middle>
       <Right>
-        <CiMenuKebab
-          onClick={() => {
-            console.log('11');
-          }}
-        />
+        <Dropdown items={menuItems}>
+          <CiMenuKebab size={28} />
+        </Dropdown>
       </Right>
-      {/* <Dropdown items={menuItems}> */}
-      {/* <S.MenuIcon /> */}
-      {/* </Dropdown> */}
     </S.MemoViewHeaderContainer>
   );
 };

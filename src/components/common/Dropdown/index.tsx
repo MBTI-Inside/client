@@ -21,7 +21,7 @@ const Dropdown: React.FC<DropdownProps> = ({ items, children }) => {
   );
 
   return (
-    <div>
+    <section>
       <div onClick={handleToggleClick}>{children}</div>
       {isOpen && (
         <S.DropdownMenu ref={ref}>
@@ -38,7 +38,7 @@ const Dropdown: React.FC<DropdownProps> = ({ items, children }) => {
           ))}
         </S.DropdownMenu>
       )}
-    </div>
+    </section>
   );
 };
 
