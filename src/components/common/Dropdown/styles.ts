@@ -12,7 +12,7 @@ export const DropdownMenu = tw.section`
     border-gray-200
     right-4 // 오른쪽에서 약간 안쪽으로 여백
     min-w-[80px] // 최소 너비 설정
-    max-w-[calc(100vw-40px)] // 화면 끝에서 약간 안쪽으로 제한
+    max-w-[calc(100vw-80px)] // 화면 끝에서 약간 안쪽으로 제한
     overflow-hidden
 `;
 

@@ -52,7 +52,7 @@ const MemoViewHeader = ({ memo }: MemoViewHeaderProps) => {
       <Middle>ESTJ</Middle>
       <Right>
         <Dropdown items={menuItems}>
-          <CiMenuKebab />
+          <CiMenuKebab size={28} />
         </Dropdown>
       </Right>
     </S.MemoViewHeaderContainer>
